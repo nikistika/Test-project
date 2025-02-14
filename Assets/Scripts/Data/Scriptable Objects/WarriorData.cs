@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Data.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "WarriorData", menuName = "CharactersData/NewWarriorData")]
-    public class WarriorScriptableObject : BaseCharacterScriptableObject
+    public class WarriorData : BaseCharacterData
 
     {
         [SerializeField] private string _effectName = "Оглушение";

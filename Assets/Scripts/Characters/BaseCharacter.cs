@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Characters;
+using Data.Scriptable_Objects;
 using JetBrains.Annotations;
 using ObjectPool;
 using TMPro;
@@ -7,28 +10,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public abstract class BaseCharactersMonoBehaviour<T> : MonoBehaviour where T : BaseCharacterScriptableObject
+public abstract class BaseCharacter<T> : MonoBehaviour where T : BaseCharacterData
 {
-    private int _maxHealth;
+    private int _maxHealth; //!!!
     private int _currentDamage;
     private float _rangeTimeAttack;
-    internal GameObject enemy;
+    
+    internal bool _effectCharacter;
+    internal GameObject Enemy;
 
-    public int HP;
+    public int HP; //!!!
 
-    [SerializeField] private TMP_Text _hpCharacterTMP;
+    [SerializeField] private TMP_Text _hpCharacterTMP; //!!!
     [SerializeField] private TMP_Text _nameCharacterTMP;
-    [SerializeField] private Slider _hpSlider;
+    [SerializeField] private Slider _hpSlider; //!!!
     [SerializeField] private Canvas _canvas;
     [SerializeField] internal T data;
 
-    [SerializeField] private int poolCount = 10;
-    [SerializeField] private bool autoExpand = false;
-    [SerializeField] private TextDamage textPrefab;
+    [SerializeField] private int poolCount = 10; //!!!
+    [SerializeField] private bool autoExpand = false; //!!!
+    [SerializeField] private TextDamage textPrefab; //!!!
 
-    private PoolMono<TextDamage> pool;
+        private PoolMono<TextDamage> pool; //!!!
+    
+    public bool stunEffect; //!!!
 
-    void Awake()
+    internal void Awake()
     {
         _maxHealth = data.Health;
         _hpSlider.maxValue = _maxHealth;
@@ -38,17 +45,17 @@ public abstract class BaseCharactersMonoBehaviour<T> : MonoBehaviour where T : B
         _hpCharacterTMP.text = $"{HP}/{_maxHealth}";
         _nameCharacterTMP.text = data.CharacterName;
 
-        pool = new PoolMono<TextDamage>(textPrefab, poolCount, transform);
-        pool.autoExpand = autoExpand;
+        pool = new PoolMono<TextDamage>(textPrefab, poolCount, transform); ///!!
+        pool.autoExpand = autoExpand; //!!!
     }
 
-    private void Start()
+    internal void Start()
     {
-        enemy = EnemyDetection();
-        Debug.Log(enemy == null ? "enemy is null" : "enemy is not null");
+        Enemy = EnemyDetection();
+        Debug.Log(Enemy == null ? "enemy is null" : "enemy is not null");
         _rangeTimeAttack = data.SpeedAttack;
 
-        StartCoroutine(AttackCoroutine(enemy, _currentDamage, _rangeTimeAttack));
+        StartCoroutine(AttackCoroutine(Enemy, _currentDamage, _rangeTimeAttack));
     }
 
 
@@ -70,7 +77,7 @@ public abstract class BaseCharactersMonoBehaviour<T> : MonoBehaviour where T : B
 
     private IEnumerator AttackCoroutine(GameObject enemy, int currentDamage, float speedAttack)
     {
-        while (enemy != null)
+        while (enemy != null && stunEffect == false)
         {
             Attack(enemy);
             yield return new WaitForSeconds(speedAttack);
@@ -80,7 +87,7 @@ public abstract class BaseCharactersMonoBehaviour<T> : MonoBehaviour where T : B
     internal virtual void Attack(GameObject enemy)
     {
         _currentDamage = RangeDamage(data.DamageMin, data.DamageMax);
-        enemy.GetComponent<BaseCharactersMonoBehaviour<BaseCharacterScriptableObject>>().GetDamage(_currentDamage);
+        HitEnemy(enemy, _currentDamage);
     }
 
     [CanBeNull]
@@ -114,4 +121,26 @@ public abstract class BaseCharactersMonoBehaviour<T> : MonoBehaviour where T : B
         yield return new WaitForSeconds(delay);
         pool.SetObject(textDamage);
     }
+
+    internal void HitEnemy(GameObject enemy, int damage)
+    {
+        if (enemy.GetComponent<BaseCharacter<ArcherData>>())
+        {
+            enemy.GetComponent<BaseCharacter<ArcherData>>().GetDamage(damage);
+        }
+
+        if (enemy.GetComponent<BaseCharacter<WarriorData>>())
+        {
+            enemy.GetComponent<BaseCharacter<WarriorData>>().GetDamage(damage);
+        }
+
+        if (enemy.GetComponent<BaseCharacter<WizardData>>())
+        {
+            enemy.GetComponent<BaseCharacter<WizardData>>().GetDamage(damage);
+        }
+    }
+    
+    
+    
+
 }

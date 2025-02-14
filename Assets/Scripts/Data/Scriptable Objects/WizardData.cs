@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 namespace Data.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "WizardData", menuName = "CharactersData/NewWizardData")]
-    public class WizardScriptableObject : BaseCharacterScriptableObject
+    public class WizardData : BaseCharacterData
 
     {
         [SerializeField] private string _effectName = "Ослабление";

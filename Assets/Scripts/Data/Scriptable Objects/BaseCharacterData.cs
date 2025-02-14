@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseCharacterScriptableObject : ScriptableObject
+public abstract class BaseCharacterData : ScriptableObject
 {
 
     [SerializeField] private string _characterName;

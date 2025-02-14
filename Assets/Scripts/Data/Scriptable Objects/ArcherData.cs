@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 namespace Data.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "ArcherData", menuName = "CharactersData/NewArcherData")]
-    public class ArcherScriptableObject : BaseCharacterScriptableObject
+    public class ArcherData : BaseCharacterData
 
     {
         [SerializeField] private string _effectName = "Отравление";
