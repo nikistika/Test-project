@@ -1,5 +1,6 @@
 using System.Collections;
 using Data.Scriptable_Objects;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Characters
@@ -7,9 +8,9 @@ namespace Characters
     public class Warrior : BaseCharacter<WarriorData>
     {
 
-        internal override void Attack(GameObject enemy)
+        internal override void Attack(GameObject enemy, int damage)
         {
-            base.Attack(enemy);
+            base.Attack(enemy, damage);
 
             TryExecuteCoroutine(data.EffectChance);
         }
@@ -27,9 +28,13 @@ namespace Characters
         
         private IEnumerator StunEnemy(float effectTime)
         {
+            effectName = $"{data.CharacterName} оглушает врага";
+            gameObject.GetComponent<InteractionData>().CreateTextView(effectName, positionTextEffect);
+            Enemy.GetComponent<InteractionData>().stunEffect = true;
+            yield return new WaitForSeconds(effectTime);
+            Enemy.GetComponent<InteractionData>().stunEffect = false;
             
-            
-            
+            _effectCharacter = false;
         }
     }
 }

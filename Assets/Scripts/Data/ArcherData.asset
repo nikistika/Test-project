@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: "\u041B\u0443\u0447\u043D\u0438\u043A"
   _health: 420
-  _speedAttack: 0.8
+  _speedAttack: 0.7
   _damageMin: 8
   _damageMax: 12
   _effectName: "\u041E\u0442\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
   _effectTime: 4
   _effectDamage: 4
-  _internalDamage: 1
+  _intervalDamage: 1
   _effectChancePercent: 30

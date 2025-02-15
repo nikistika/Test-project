@@ -2,53 +2,65 @@ using System.Collections;
 using ObjectPool;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 namespace DefaultNamespace
 {
-    public class CharacterInteraction : MonoBehaviour
+    public class InteractionData : MonoBehaviour
     {
         
-        private PoolMono<TextDamage> pool; //!!!
+        private PoolMono<TextDamage> pool; 
         
-        private int _maxHealth;
+        public int maxHealth;
         public int HP;
-        
         public bool stunEffect;
+        public bool debuffEffect;
+        public int debuffPercent;
+        public bool poisonEffect;
+        
         [SerializeField] private int poolCount = 10;
         [SerializeField] private bool autoExpand = false;
         [SerializeField] private TextDamage textPrefab;
         [SerializeField] private TMP_Text _hpCharacterTMP;
         [SerializeField] private Slider _hpSlider;
         
+        private Vector3 positionTextDamage = new (0.3f, 0.3f, -0.7f);
+
+        
         void Awake()
         {
             pool = new PoolMono<TextDamage>(textPrefab, poolCount, transform);
             pool.autoExpand = autoExpand; 
             
-            _hpSlider.maxValue = _maxHealth;
-            _hpSlider.value = _maxHealth;
+            HP = maxHealth;
+            
+            _hpSlider.maxValue = maxHealth;
+            _hpSlider.value = maxHealth;
+            
+            _hpCharacterTMP.text = $"{HP}/{maxHealth}";
+            
+            pool = new PoolMono<TextDamage>(textPrefab, poolCount, transform);
+            pool.autoExpand = autoExpand;
         }
         
         public void GetDamage(int damage)
         {
             HP -= damage;
             _hpSlider.value = HP;
-            _hpCharacterTMP.text = $"{HP}/{_maxHealth}";
-            Debug.Log($"Current health {data.CharacterName}: {HP}");
+            _hpCharacterTMP.text = $"{HP}/{maxHealth}";
             if (HP <= 0) Destroy(gameObject);
-
-            CreateTextDamage(damage);
+            
+            string textDamage = $"-{damage}";
+            CreateTextView(textDamage, positionTextDamage);
         }
         
-        private void CreateTextDamage(int damage)
+        public void CreateTextView(string text, Vector3 positionText)
         {
-            Vector3 positionText = new Vector3(0.3f, 0.3f, -0.7f);
-
             var textDamage = pool.GetFreeElement();
             textDamage.transform.localPosition = positionText;
-            textDamage.GetComponent<TextMeshPro>().text = $"- {damage}";
+            textDamage.GetComponent<TextMeshPro>().text = text;
             StartCoroutine(ReturnToPoolAfterDelay(textDamage, 2f));
         }
     

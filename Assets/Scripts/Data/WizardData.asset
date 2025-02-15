@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: WizardData
   m_EditorClassIdentifier: 
   _characterName: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
-  _health: 480
-  _speedAttack: 1
-  _damageMin: 5
+  _health: 380
+  _speedAttack: 0.8
+  _damageMin: 7
   _damageMax: 10
   _effectName: "\u041E\u0441\u043B\u0430\u0431\u043B\u0435\u043D\u0438\u0435"
   _effectTime: 5
-  _effectDebuffDamagePercent: 30
+  _effectChance: 30
+  _effectDebuffPercent: 50

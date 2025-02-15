@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 8314741564791995601}
   - component: {fileID: 2444003439486448728}
   - component: {fileID: 308695474640874506}
+  - component: {fileID: 4750294047246652672}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Character
@@ -396,15 +397,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef845e72d94d4a246814e8e584f5da72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _hpCharacterTMP: {fileID: 5263317651619878147}
   _nameCharacterTMP: {fileID: 226485941378588114}
-  _hpSlider: {fileID: 4528053379188584583}
-  _canvas: {fileID: 7477429454678873122}
   data: {fileID: 11400000, guid: 5b57be06949df204f8d5c3631dc751cc, type: 2}
+--- !u!114 &4750294047246652672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340624343686212616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b3d1332ef148259ca1af3a9a29314d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 0
+  HP: 0
+  stunEffect: 0
   poolCount: 10
   autoExpand: 1
   textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
+  _hpCharacterTMP: {fileID: 5263317651619878147}
+  _hpSlider: {fileID: 4528053379188584583}
 --- !u!1 &3664266462629906698
 GameObject:
   m_ObjectHideFlags: 0

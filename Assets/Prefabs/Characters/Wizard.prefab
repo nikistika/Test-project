@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 6595850692780632383}
   - component: {fileID: 6803595205618791886}
   - component: {fileID: 8085230141499155217}
+  - component: {fileID: 6778657465751006983}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Character
@@ -660,15 +661,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6256646ec8f074a9c002bb50472786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _hpCharacterTMP: {fileID: 5622790194388429255}
   _nameCharacterTMP: {fileID: 263686722226609041}
-  _hpSlider: {fileID: 114565640626599661}
-  _canvas: {fileID: 8510936118814896119}
-  data: {fileID: 11400000, guid: 3ce03e7cfccdd464e97d4e147ada29bc, type: 2}
+  data: {fileID: 11400000, guid: e70f757ff85698c43a87633b1cbe2f29, type: 2}
+--- !u!114 &6778657465751006983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445930559236000092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b3d1332ef148259ca1af3a9a29314d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  HP: 0
+  stunEffect: 0
+  effectDebuff: 0
+  debuffPercent: 0
   poolCount: 10
   autoExpand: 1
   textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
+  _hpCharacterTMP: {fileID: 5622790194388429255}
+  _hpSlider: {fileID: 114565640626599661}
 --- !u!1 &9213950540598466394
 GameObject:
   m_ObjectHideFlags: 0

@@ -572,6 +572,7 @@ GameObject:
   - component: {fileID: 478743329113056039}
   - component: {fileID: 4387584808359672096}
   - component: {fileID: 2638361568430268017}
+  - component: {fileID: 2408455241164489324}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Character
@@ -705,15 +706,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d915bbecc9374f1482c3db6319fcc913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _hpCharacterTMP: {fileID: 3212825353383291812}
   _nameCharacterTMP: {fileID: 188869613749601363}
-  _hpSlider: {fileID: 8057820881032019033}
-  _canvas: {fileID: 3984248634794408256}
-  data: {fileID: 11400000, guid: 5c9e1fc4c21caf64aa21ac464d8e0b10, type: 2}
+  data: {fileID: 11400000, guid: 2d5be12c4c19dfb4b858b10d6c3a912a, type: 2}
+--- !u!114 &2408455241164489324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469537043060210842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b3d1332ef148259ca1af3a9a29314d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 0
+  HP: 0
+  stunEffect: 0
   poolCount: 10
   autoExpand: 1
   textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
+  _hpCharacterTMP: {fileID: 3212825353383291812}
+  _hpSlider: {fileID: 8057820881032019033}
 --- !u!1 &8874165781712292407
 GameObject:
   m_ObjectHideFlags: 0

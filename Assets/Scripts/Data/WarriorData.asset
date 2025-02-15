@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WarriorData
   m_EditorClassIdentifier: 
   _characterName: "\u0412\u043E\u0438\u043D"
-  _health: 650
-  _speedAttack: 1.5
+  _health: 500
+  _speedAttack: 0.8
   _damageMin: 10
   _damageMax: 15
   _effectName: "\u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
-  _effectTime: 3
-  _effectChance: 15
+  _effectTime: 2
+  _effectChance: 10

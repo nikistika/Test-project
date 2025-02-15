@@ -1,23 +1,19 @@
 using System;
 using System.Collections;
 using Data.Scriptable_Objects;
+using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Archer : BaseCharacter<ArcherData>
 {
-
-    void Start()
-    {
-        base.Start();
-    }
     
-    internal override void Attack(GameObject enemy)
+    internal override void Attack(GameObject enemy, int damage)
     {
-        base.Attack(enemy);
+        base.Attack(enemy, damage);
         
-        if (_effectCharacter == false) TryExecuteCoroutine(data.EffectDamage);
+        if (_effectCharacter == false) TryExecuteCoroutine(data.EffectChance);
     }
 
     void TryExecuteCoroutine(int chancePercent)
@@ -33,13 +29,17 @@ public class Archer : BaseCharacter<ArcherData>
 
     private IEnumerator PoisonEffect(float effectTime, int effectDamage, float intervalDamage)
     {
+        
+        effectName = $"{data.CharacterName} отравляет врага";
+        gameObject.GetComponent<InteractionData>().CreateTextView(effectName, positionTextEffect);
+        
         float elapsedTime = 0f; // Прошедшее время
-
+        
         while (elapsedTime < effectTime) // Пока эффект не закончился
         {
             
-            HitEnemy(Enemy, effectDamage);
-
+            Enemy.GetComponent<InteractionData>().GetDamage(effectDamage);
+            
             yield return new WaitForSeconds(intervalDamage); // Ждём перед следующим уроном
             elapsedTime += intervalDamage; // Увеличиваем время действия яда
         }
