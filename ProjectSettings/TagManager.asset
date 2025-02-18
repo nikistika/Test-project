@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Character
   - UI
-  - hyila
+  - PanelAddItem
+  - PanelInventary
   layers:
   - Default
   - TransparentFX

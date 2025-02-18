@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ShieldData : ItemData
 {
     
-    
+    [SerializeField] private GameObject _prefab;
+
+    public GameObject prefub => _prefab;
     
 }
