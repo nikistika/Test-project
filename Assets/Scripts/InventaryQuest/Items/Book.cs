@@ -1,30 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
-public class Book : MonoBehaviour
+public class Book : Item
 {
- 
-    [SerializeField] private BookData _bookData;
-    [SerializeField] private Inventary _inventary;
+       
 
-    private GameObject _parentObject;
-    private const string PANEL_ADD_ITEM = "PanelAddItem";
-    private const string PANEL_INVETNARY = "PanelInventary";
-    
-    private void Awake()
+    [SerializeField] private BookData _bookData;
+
+    internal override void AddItemPanelAction(GameObject slot)
     {
-        _parentObject = transform.parent.gameObject.transform.parent.gameObject;
+        newItem = Instantiate(gameObject, slot.transform);
+        textNewItem = newItem.GetComponent<Book>().StatusText.gameObject;
+        InventaryObject.AddWeightInInventory(_bookData.WeightItem);
+        textNewItem.SetActive(true);
     }
-    
-    public void OnClickIcon()
+
+    internal override void InventaryPanelAction()
     {
-        if (_parentObject.tag == PANEL_ADD_ITEM)
-        {
-            Instantiate(gameObject, _inventary.Slots[0].transform);
-        }
-        if (_parentObject.tag == PANEL_INVETNARY) ;
-        
+
     }
-    
+
 }

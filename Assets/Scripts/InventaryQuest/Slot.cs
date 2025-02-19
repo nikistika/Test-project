@@ -5,7 +5,6 @@ using UnityEngine;
 public class Slot : MonoBehaviour
 {
 
-    public bool IsSlotFree = true;
     public int CountMaxStack;
 
 }
