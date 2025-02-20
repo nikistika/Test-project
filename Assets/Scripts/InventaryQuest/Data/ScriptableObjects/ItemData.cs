@@ -4,14 +4,12 @@ using UnityEngine.UI;
 
 public abstract class ItemData : ScriptableObject
 {
-    [SerializeField] private int _id;
     [SerializeField] private string _nameItem;
     [SerializeField] private float _weightItem;
     [SerializeField] private bool _stackable;
     [SerializeField] private Sprite _assetImage;
 
 
-    public int Id => _id;
     public string NameItem => _nameItem;
     public Sprite AssetImage => _assetImage;
     public bool Stackable => _stackable;

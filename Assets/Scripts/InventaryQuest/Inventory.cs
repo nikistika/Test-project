@@ -36,15 +36,24 @@ public class Inventory : MonoBehaviour
 
     public void AddWeightInInventory(float weight)
     {
-        _currentWeight += weight;
-        _countWeightText.text = $"Максимальный вес: {_currentWeight}/{_inventoryMaxWeight}";
+        if (_currentWeight + weight <= _inventoryMaxWeight)
+        {
+             _currentWeight += weight;
+             _countWeightText.text = $"Максимальный вес: {_currentWeight}/{_inventoryMaxWeight}";
+        }
+
     }
 
-        public void RemoveInFromventory(float weight)
+        public void RemoveInFroInventory(float weight)
     {
-        _currentWeight -= weight;
-        _countWeightText.text = $"Максимальный вес: {_currentWeight}/{_inventoryMaxWeight}";
+        if (_currentWeight - weight >= 0)
+        {
+            _currentWeight -= weight;
+            _countWeightText.text = $"Максимальный вес: {_currentWeight}/{_inventoryMaxWeight}";  
+        }
 
+
+        
     }
     
 

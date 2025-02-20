@@ -5,8 +5,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "NewPotionData", menuName = "ItemData/NewPotionData")]
 public class PotionData : ItemData
 {
-    private int _maxCount;
-    private int _healQuantity;
+    [SerializeField] private int _maxCount;
+    [SerializeField] private int _healQuantity;
 
     public int MaxCount => _maxCount;
     public int HealQuantity => _healQuantity;

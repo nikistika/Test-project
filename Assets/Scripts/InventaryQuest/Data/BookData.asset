@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7137b17e9074ac34783429849b7efcfb, type: 3}
   m_Name: BookData
   m_EditorClassIdentifier: 
-  _id: 123
   _nameItem: "\u041A\u043D\u0438\u0433\u0430"
-  _weightItem: 0.5
+  _weightItem: 2
   _stackable: 0
   _assetImage: {fileID: 21300000, guid: 8782b0482c0f96d47b98878bbeb1a7c8, type: 3}
   _readIt: 0

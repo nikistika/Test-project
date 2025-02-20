@@ -3,14 +3,23 @@ using UnityEngine;
 
 public class Book : Item
 {
+    private const string ReadItStatus =  "Прочитано";
 
     private bool _readIt;
     
     [SerializeField] private BookData _bookData;
 
+    private void Awake()
+    {
+        base.Awake();
+        Debug.Log($"StatusText: {StatusText}");
+
+        Stackable = _bookData.Stackable;
+    }
+    
     internal override void ClickAddItemPanelAction(GameObject slot)
     {
-        if (InventoryObject.InventoryMaxWeight > InventoryObject.CurrentWeight)
+        if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _bookData.WeightItem)
         {
             newItem = Instantiate(gameObject, slot.transform);
             textNewItem = newItem.GetComponent<Book>().StatusText;
@@ -23,9 +32,7 @@ public class Book : Item
     internal override void ClickInventoryPanelAction()
     {
         _readIt = true;
-        Debug.Log($"textNewItem in ClickInventoryPanelAction {textNewItem}");
-
-        StatusText.GetComponent<TMP_Text>().text = "Прочитано";
+        StatusText.GetComponent<TMP_Text>().text = ReadItStatus;
     }
 
 }

@@ -8,6 +8,10 @@ TagManager:
   - UI
   - PanelAddItem
   - PanelInventary
+  - Book
+  - Potion
+  - Mace
+  - Shield
   layers:
   - Default
   - TransparentFX

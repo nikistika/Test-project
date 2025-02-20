@@ -10,6 +10,4 @@ public class HP_Panel : MonoBehaviour
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private TMP_Text _hpCharacterTMP;
     
-    
-    
 }
