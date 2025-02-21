@@ -2429,8 +2429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.4, y: -55.7}
-  m_SizeDelta: {x: 119.2804, y: 28.8164}
+  m_AnchoredPosition: {x: -0.0000019073, y: -59.6}
+  m_SizeDelta: {x: 106.3279, y: 28.8164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938484966
 MonoBehaviour:
@@ -2486,7 +2486,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3374,7 +3374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0657, y: -55.6}
+  m_AnchoredPosition: {x: 2.0657, y: -60.1}
   m_SizeDelta: {x: 119.2804, y: 28.8164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345532022
@@ -3880,8 +3880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1914524328}
-  StatusText: {fileID: 1502829572}
+  StatusText: {fileID: 938484964}
   _potionData: {fileID: 11400000, guid: dabbb7a4425c2b341aa62d4cf804ff25, type: 2}
+  _currentCount: 0
 --- !u!222 &1502829575
 CanvasRenderer:
   m_ObjectHideFlags: 0

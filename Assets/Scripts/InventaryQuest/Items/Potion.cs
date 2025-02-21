@@ -7,9 +7,8 @@ namespace InventaryQuest.Items
     {
         
         [SerializeField] private PotionData _potionData;
-        private int _currentCount;
+        public int _currentCount;
         
-        public int CurrentCount => _currentCount;
 
         private void Awake()
         {
@@ -34,9 +33,9 @@ namespace InventaryQuest.Items
         internal override void ClickAddItemPanelAction(GameObject slot, int quantityItem)
         {
 
-            slot.transform.GetChild(0).gameObject.GetComponent<Potion>()._currentCount += quantityItem;
-            StatusText.GetComponent<TMP_Text>().text = $"{_currentCount}/{_potionData.MaxCount}";
-            //TODO: Дописать эту функцию
+            var potion = slot.transform.GetChild(0).gameObject.GetComponent<Potion>();
+            if (potion._currentCount + quantityItem <= _potionData.MaxCount) potion._currentCount += quantityItem;
+            potion.StatusText.GetComponent<TMP_Text>().text = $"{potion._currentCount}/{_potionData.MaxCount}";
 
         }
 
