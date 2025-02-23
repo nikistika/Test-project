@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class VictoryPanel : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textVictory;
-    
+
 
     public void ShowVictoryText(string nameCharacter)
     {
@@ -17,7 +16,4 @@ public class VictoryPanel : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-
-    
 }

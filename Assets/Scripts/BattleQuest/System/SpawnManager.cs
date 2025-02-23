@@ -18,7 +18,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (availableCharacters.Count == 0)
         {
-            Debug.LogError("Ошибка: список персонажей пуст!");
             return null;
         }
 

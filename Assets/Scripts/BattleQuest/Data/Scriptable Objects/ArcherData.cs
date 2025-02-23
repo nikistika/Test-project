@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Data.Scriptable_Objects
 {
@@ -18,7 +17,5 @@ namespace Data.Scriptable_Objects
         public int EffectDamage => _effectDamage;
         public float IntervalDamage => _intervalDamage;
         public int EffectChance => _effectChancePercent;
-
-        
     }
 }

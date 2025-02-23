@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "NewPotionData", menuName = "ItemData/NewPotionData")]
 public class PotionData : ItemData
