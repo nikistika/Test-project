@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d2d5d62ecbc940bb5a82f8a56d7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesList: []
-  _victoryPanel: {fileID: 691053703}
+  EnemiesList: []
+  _victoryPanel: {fileID: 691053705}
 --- !u!1 &533580411
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +976,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500976869}
-  - component: {fileID: 1500976868}
   m_Layer: 0
   m_Name: '[System]'
   m_TagString: Untagged
@@ -984,18 +983,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1500976868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500976867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1500976869
 Transform:
   m_ObjectHideFlags: 0

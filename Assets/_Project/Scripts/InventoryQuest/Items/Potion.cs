@@ -17,7 +17,7 @@ namespace Items
             Stackable = _potionData.Stackable;
         }
 
-        internal override void ClickAddItemPanelAction(GameObject slot)
+        public override void ClickAddItemPanelAction(GameObject slot)
         {
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _potionData.WeightItem)
             {
@@ -32,7 +32,7 @@ namespace Items
             }
         }
 
-        internal override void ClickAddItemPanelAction(GameObject slot, int quantityItem)
+        public override void ClickAddItemPanelAction(GameObject slot, int quantityItem)
         {
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _potionData.WeightItem)
             {
@@ -53,7 +53,7 @@ namespace Items
             }
         }
 
-        internal override void ClickInventoryPanelAction()
+        protected override void ClickInventoryPanelAction()
         {
             PanelHP.Heal(_potionData.HealQuantity);
             CurrentCount -= 1;

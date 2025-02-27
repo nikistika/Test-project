@@ -21,7 +21,7 @@ namespace Items
         
         [field: SerializeField] internal Inventory InventoryObject { get; private set; }
 
-        internal void Awake()
+        protected void Awake()
         {
             ThisItemTag = gameObject.tag;
         }
@@ -63,15 +63,15 @@ namespace Items
             }
         }
 
-        internal virtual void ClickAddItemPanelAction(GameObject slot)
+        public virtual void ClickAddItemPanelAction(GameObject slot)
         {
         }
 
-        internal virtual void ClickInventoryPanelAction()
+        protected virtual void ClickInventoryPanelAction()
         {
         }
 
-        internal virtual void ClickAddItemPanelAction(GameObject slot, int quantityItem)
+        public virtual void ClickAddItemPanelAction(GameObject slot, int quantityItem)
         {
         }
     }

@@ -314,9 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef845e72d94d4a246814e8e584f5da72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 5b57be06949df204f8d5c3631dc751cc, type: 2}
   _nameCharacterTMP: {fileID: 645077033705448219}
-  data: {fileID: 11400000, guid: 5b57be06949df204f8d5c3631dc751cc, type: 2}
-  _victoryObject: {fileID: 0}
 --- !u!114 &6606482984977766305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,15 +328,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b3d1332ef148259ca1af3a9a29314d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  MaxHealth: 0
   HP: 0
-  stunEffect: 0
-  debuffEffect: 0
-  debuffPercent: 0
-  poisonEffect: 0
-  poolCount: 10
-  autoExpand: 1
-  textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
+  StunEffect: 0
+  DebuffEffect: 0
+  DebuffPercent: 0
+  NameCharacter: 
+  _poolCount: 10
+  _autoExpand: 1
+  _textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
   _hpCharacterTMP: {fileID: 4541843495591853746}
   _hpSlider: {fileID: 3738728555531969956}
 --- !u!1 &4145825988090446378

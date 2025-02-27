@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cf4aa622cf4464ea556b40848a1a95, type: 3}
   m_Name: ShieldData
   m_EditorClassIdentifier: 
-  _nameItem: "\u0429\u0438\u0442"
-  _weightItem: 7
-  _stackable: 0
-  _assetImage: {fileID: 21300000, guid: e5725b79721b19e499d51955bc4a5ca1, type: 3}
-  _prefab: {fileID: 1113306130731123678, guid: 6abeed541f2193941b3b38435de85b3d, type: 3}
+  <NameItem>k__BackingField: "\u0429\u0438\u0442"
+  <AssetImage>k__BackingField: {fileID: 21300000, guid: e5725b79721b19e499d51955bc4a5ca1, type: 3}
+  <Stackable>k__BackingField: 0
+  <WeightItem>k__BackingField: 4
+  <Prefab>k__BackingField: {fileID: 2845216639751453648, guid: ad39d600605e3f4488937e4bf153f02f, type: 3}

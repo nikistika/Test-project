@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e90143478d4c75b8ae89aec7a318b8, type: 3}
   m_Name: WizardData
   m_EditorClassIdentifier: 
-  _characterName: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
-  _health: 380
-  _speedAttack: 0.8
-  _damageMin: 7
-  _damageMax: 10
-  _effectName: "\u041E\u0441\u043B\u0430\u0431\u043B\u0435\u043D\u0438\u0435"
-  _effectTime: 5
-  _effectChance: 30
-  _effectDebuffPercent: 50
+  <CharacterName>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
+  <Health>k__BackingField: 350
+  <SpeedAttack>k__BackingField: 0.7
+  <DamageMin>k__BackingField: 6
+  <DamageMax>k__BackingField: 12
+  <EffectName>k__BackingField: "\u041E\u0441\u043B\u0430\u0431\u043B\u0435\u043D\u0438\u0435"
+  <EffectTime>k__BackingField: 5
+  <EffectDebuff>k__BackingField: 40
+  <EffectChance>k__BackingField: 0.4

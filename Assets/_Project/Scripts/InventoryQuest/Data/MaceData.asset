@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389ddac7337bb27418b33c64b136aa62, type: 3}
   m_Name: MaceData
   m_EditorClassIdentifier: 
-  _nameItem: "\u0411\u0443\u043B\u0430\u0432\u0430"
-  _weightItem: 6
-  _stackable: 0
-  _assetImage: {fileID: 21300000, guid: 76a4e3be693b3a14f97c36c00463e198, type: 3}
-  _prefab: {fileID: 1647169714640754362, guid: aa8522de51c0a8d4eab62f3656e008d0, type: 3}
+  <NameItem>k__BackingField: "\u041C\u043E\u0440\u0433\u0435\u043D\u0448\u0442\u0435\u0440\u043D"
+  <AssetImage>k__BackingField: {fileID: 21300000, guid: 205037e690acd7b479532c949b47c2c5, type: 3}
+  <Stackable>k__BackingField: 0
+  <WeightItem>k__BackingField: 3
+  <Prefub>k__BackingField: {fileID: 9168475047957945291, guid: fae753e694df8684daa4cf16f233c196, type: 3}

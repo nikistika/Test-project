@@ -16,7 +16,7 @@ namespace Items
             Stackable = _maceData.Stackable;
         }
 
-        internal override void ClickAddItemPanelAction(GameObject slot)
+        public override void ClickAddItemPanelAction(GameObject slot)
         {
             Debug.Log($"ClickAddItemPanelAction: {slot.name}");
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _maceData.WeightItem)
@@ -29,7 +29,7 @@ namespace Items
             }
         }
 
-        internal override void ClickInventoryPanelAction()
+        protected override void ClickInventoryPanelAction()
         {
             GameObject handRight = GameObject.FindGameObjectWithTag("Hand_r");
             bool hasChildWithTag = false;

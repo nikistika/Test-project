@@ -16,7 +16,7 @@ namespace Items
             Stackable = _shieldData.Stackable;
         }
 
-        internal override void ClickAddItemPanelAction(GameObject slot)
+        public override void ClickAddItemPanelAction(GameObject slot)
         {
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _shieldData.WeightItem)
             {
@@ -28,7 +28,7 @@ namespace Items
             }
         }
 
-        internal override void ClickInventoryPanelAction()
+        protected override void ClickInventoryPanelAction()
         {
             GameObject handRight = GameObject.FindGameObjectWithTag("Hand_r");
             bool hasChildWithTag = false;

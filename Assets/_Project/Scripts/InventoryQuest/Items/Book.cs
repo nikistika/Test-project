@@ -19,7 +19,7 @@ namespace Items
             Stackable = _bookData.Stackable;
         }
 
-        internal override void ClickAddItemPanelAction(GameObject slot)
+        public override void ClickAddItemPanelAction(GameObject slot)
         {
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _bookData.WeightItem)
             {
@@ -31,7 +31,7 @@ namespace Items
             }
         }
 
-        internal override void ClickInventoryPanelAction()
+        protected override void ClickInventoryPanelAction()
         {
             _readIt = true;
             StatusText.GetComponent<TMP_Text>().text = ReadItStatus;

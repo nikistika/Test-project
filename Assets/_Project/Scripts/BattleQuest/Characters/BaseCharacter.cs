@@ -14,14 +14,14 @@ namespace Characters
 {
     public abstract class BaseCharacter<T> : MonoBehaviour where T : BaseCharacterData
     {
-        [SerializeField] internal T Data;
+        [SerializeField] protected T Data;
         [SerializeField] private TMP_Text _nameCharacterTMP;
 
-        internal string EffectName;
-        internal int CurrentDamage;
-        internal bool EffectCharacter;
-        internal GameObject Enemy;
-        internal Vector3 PositionTextEffect = new(0f, 0.6f, -0.7f);
+        protected string EffectName;
+        protected int CurrentDamage;
+        protected bool EffectCharacter;
+        protected GameObject Enemy;
+        protected Vector3 PositionTextEffect = new(0f, 0.6f, -0.7f);
 
         private int _maxHealth;
         private float _rangeTimeAttack;
@@ -30,7 +30,7 @@ namespace Characters
         private List<GameObject> _enemyList;
         private PoolMono<TextDamage> _pool;
 
-        internal void Awake()
+        protected void Awake()
         {
             _gameManager = FindObjectOfType<GameManager>();
 
@@ -43,15 +43,17 @@ namespace Characters
             _nameCharacterTMP.text = Data.CharacterName;
         }
 
-        internal void Start()
+        protected void Start()
         {
             Enemy = EnemyDetection();
+            Debug.Log(Enemy == null? "Enemy is null" : "Enemy is not null");
+
             _rangeTimeAttack = Data.SpeedAttack;
 
             StartCoroutine(AttackCoroutine(Enemy, _rangeTimeAttack));
         }
 
-        internal void Update()
+        protected void Update()
         {
             CurrentDamage = RangeDamage(Data.DamageMin, Data.DamageMax);
         }
@@ -79,9 +81,15 @@ namespace Characters
             }
         }
 
-        internal virtual void Attack(GameObject enemy, int damage)
+        protected void Attack(GameObject enemy, int damage)
         {
             enemy?.GetComponent<InteractionData>().GetDamage(damage);
+            ApplyEffect();
+        }
+
+        protected virtual void ApplyEffect()
+        {
+            
         }
 
         private GameObject EnemyDetection()

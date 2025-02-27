@@ -8,16 +8,11 @@ namespace System
     public class GameManager : MonoBehaviour
     {
         
-        public List<GameObject> EnemiesList;
+        [HideInInspector] public List<GameObject> EnemiesList;
         
-        [SerializeField] private GameObject _victoryPanel;
+        [SerializeField] private VictoryPanel _victoryPanel;
         
         private string _nameCharacterVictory;
-
-        private void Awake()
-        {
-            EnemiesList = new List<GameObject>();
-        }
 
         private void Update()
         {
@@ -26,8 +21,8 @@ namespace System
                 _nameCharacterVictory = EnemiesList[0].GetComponent<InteractionData>().NameCharacter;
 
 
-                _victoryPanel.GetComponent<VictoryPanel>().ShowVictoryText(_nameCharacterVictory);
-                _victoryPanel.SetActive(true);
+                _victoryPanel.ShowVictoryText(_nameCharacterVictory);
+                _victoryPanel.gameObject.SetActive(true);
             }
         }
     }

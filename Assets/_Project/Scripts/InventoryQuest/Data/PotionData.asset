@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c4007aea54b91429a94d19d2e567c5, type: 3}
   m_Name: PotionData
   m_EditorClassIdentifier: 
-  _nameItem: "\u0417\u0435\u043B\u044C\u0435"
-  _weightItem: 1
-  _stackable: 1
-  _assetImage: {fileID: 21300000, guid: 810f284e3a139c848bbe50a9617b34ef, type: 3}
-  _maxCount: 24
-  _healQuantity: 25
+  <NameItem>k__BackingField: "\u0417\u0435\u043B\u044C\u0435"
+  <AssetImage>k__BackingField: {fileID: 21300000, guid: 810f284e3a139c848bbe50a9617b34ef, type: 3}
+  <Stackable>k__BackingField: 1
+  <WeightItem>k__BackingField: 1
+  <MaxCount>k__BackingField: 24
+  <HealQuantity>k__BackingField: 25

@@ -7,22 +7,32 @@ namespace Characters
 {
     public class Warrior : BaseCharacter<WarriorData>
     {
-        internal override void Attack(GameObject enemy, int damage)
-        {
-            base.Attack(enemy, damage);
+        // protected override void Attack(GameObject enemy, int damage)
+        // {
+        //     base.Attack(enemy, damage);
+        //
+        //     TryExecuteCoroutine(Data.EffectChance);
+        // }
 
-            TryExecuteCoroutine(Data.EffectChance);
-        }
-
-        void TryExecuteCoroutine(int chancePercent)
+        protected override void ApplyEffect()
         {
-            if (Random.Range(0f, 100f) < chancePercent)
+            if (Random.value < Data.EffectChance)
             {
                 EffectCharacter = true;
 
                 StartCoroutine(StunEnemy(Data.EffectTime));
             }
         }
+        
+        // void TryExecuteCoroutine(int chancePercent)
+        // {
+        //     if (Random.Range(0f, 100f) < chancePercent)
+        //     {
+        //         EffectCharacter = true;
+        //
+        //         StartCoroutine(StunEnemy(Data.EffectTime));
+        //     }
+        // }
 
         private IEnumerator StunEnemy(float effectTime)
         {

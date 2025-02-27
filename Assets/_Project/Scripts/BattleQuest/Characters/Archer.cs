@@ -8,22 +8,32 @@ namespace Characters
 {
     public class Archer : BaseCharacter<ArcherData>
     {
-        internal override void Attack(GameObject enemy, int damage)
-        {
-            base.Attack(enemy, damage);
+        // protected override void Attack(GameObject enemy, int damage)
+        // {
+        //     base.Attack(enemy, damage);
+        //
+        //     if (EffectCharacter == false) TryExecuteCoroutine(Data.EffectChance);
+        // }
 
-            if (EffectCharacter == false) TryExecuteCoroutine(Data.EffectChance);
-        }
-
-        void TryExecuteCoroutine(int chancePercent)
+        protected override void ApplyEffect()
         {
-            if (Random.Range(0f, 100f) < chancePercent)
+            if (Random.Range(0f, 100f) < Data.EffectChance)
             {
                 EffectCharacter = true;
 
                 StartCoroutine(PoisonEffect(Data.EffectTime, Data.EffectDamage, Data.IntervalDamage));
             }
         }
+
+        // private void TryExecuteCoroutine(int chancePercent)
+        // {
+        //     if (Random.Range(0f, 100f) < chancePercent)
+        //     {
+        //         EffectCharacter = true;
+        //
+        //         StartCoroutine(PoisonEffect(Data.EffectTime, Data.EffectDamage, Data.IntervalDamage));
+        //     }
+        // }
 
         private IEnumerator PoisonEffect(float effectTime, int effectDamage, float intervalDamage)
         {

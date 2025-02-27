@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd88c76cb444d6ea3f8b9906f0de815, type: 3}
   m_Name: WarriorData
   m_EditorClassIdentifier: 
-  _characterName: "\u0412\u043E\u0438\u043D"
-  _health: 500
-  _speedAttack: 1.2
-  _damageMin: 10
-  _damageMax: 15
-  _effectName: "\u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
-  _effectTime: 2
-  _effectChance: 10
+  <CharacterName>k__BackingField: "\u0412\u043E\u0439\u043D"
+  <Health>k__BackingField: 500
+  <SpeedAttack>k__BackingField: 1
+  <DamageMin>k__BackingField: 10
+  <DamageMax>k__BackingField: 15
+  <EffectName>k__BackingField: "\u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
+  <EffectTime>k__BackingField: 2
+  <EffectChance>k__BackingField: 0.25
