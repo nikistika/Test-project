@@ -37,7 +37,6 @@ namespace Items
             if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _potionData.WeightItem)
             {
                 var potion = slot.transform.GetChild(0).gameObject.GetComponent<Potion>();
-                // potion = (potion == null) ? return : potion.GetComponent<Potion>();
                 if (potion.CurrentCount + quantityItem <= _potionData.MaxCount)
                 {
                     potion.CurrentCount += quantityItem;

@@ -8,46 +8,33 @@ namespace Characters
 {
     public class Archer : BaseCharacter<ArcherData>
     {
-        // protected override void Attack(GameObject enemy, int damage)
-        // {
-        //     base.Attack(enemy, damage);
-        //
-        //     if (EffectCharacter == false) TryExecuteCoroutine(Data.EffectChance);
-        // }
 
         protected override void ApplyEffect()
         {
-            if (Random.Range(0f, 100f) < Data.EffectChance)
+            if (Random.value < Data.EffectChance)
             {
                 EffectCharacter = true;
 
-                StartCoroutine(PoisonEffect(Data.EffectTime, Data.EffectDamage, Data.IntervalDamage));
+                StartCoroutine(PoisonEffect());
             }
         }
 
-        // private void TryExecuteCoroutine(int chancePercent)
-        // {
-        //     if (Random.Range(0f, 100f) < chancePercent)
-        //     {
-        //         EffectCharacter = true;
-        //
-        //         StartCoroutine(PoisonEffect(Data.EffectTime, Data.EffectDamage, Data.IntervalDamage));
-        //     }
-        // }
 
-        private IEnumerator PoisonEffect(float effectTime, int effectDamage, float intervalDamage)
+        private IEnumerator PoisonEffect()
         {
-            EffectName = $"{Data.CharacterName} отравляет врага";
-            gameObject.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
+
+            EffectName = $"Получает эффект {Data.EffectName}";
+            Enemy.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
+
 
             float elapsedTime = 0f;
 
-            while (elapsedTime < effectTime)
+            while (elapsedTime < Data.EffectTime)
             {
-                Enemy.GetComponent<InteractionData>().GetDamage(effectDamage);
+                Enemy.GetComponent<InteractionData>().GetDamage(Data.EffectDamage);
 
-                yield return new WaitForSeconds(intervalDamage);
-                elapsedTime += intervalDamage;
+                yield return new WaitForSeconds(Data.IntervalDamage);
+                elapsedTime += Data.IntervalDamage;
             }
 
             EffectCharacter = false;

@@ -7,12 +7,6 @@ namespace Characters
 {
     public class Warrior : BaseCharacter<WarriorData>
     {
-        // protected override void Attack(GameObject enemy, int damage)
-        // {
-        //     base.Attack(enemy, damage);
-        //
-        //     TryExecuteCoroutine(Data.EffectChance);
-        // }
 
         protected override void ApplyEffect()
         {
@@ -24,22 +18,13 @@ namespace Characters
             }
         }
         
-        // void TryExecuteCoroutine(int chancePercent)
-        // {
-        //     if (Random.Range(0f, 100f) < chancePercent)
-        //     {
-        //         EffectCharacter = true;
-        //
-        //         StartCoroutine(StunEnemy(Data.EffectTime));
-        //     }
-        // }
 
         private IEnumerator StunEnemy(float effectTime)
         {
             if (Enemy == null) yield break;
 
-            EffectName = $"{Data.CharacterName} оглушает врага";
-            gameObject.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
+            EffectName = $"Получает эффект {Data.EffectName}";
+            Enemy.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
             Enemy.GetComponent<InteractionData>().StunEffect = true;
             yield return new WaitForSeconds(effectTime);
             Enemy.GetComponent<InteractionData>().StunEffect = false;

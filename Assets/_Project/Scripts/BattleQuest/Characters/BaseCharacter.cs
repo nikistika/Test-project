@@ -84,7 +84,7 @@ namespace Characters
         protected void Attack(GameObject enemy, int damage)
         {
             enemy?.GetComponent<InteractionData>().GetDamage(damage);
-            ApplyEffect();
+            if (EffectCharacter == false) ApplyEffect();
         }
 
         protected virtual void ApplyEffect()
