@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace UI
@@ -9,6 +10,11 @@ namespace UI
         private void Update()
         {
             transform.Translate(0, _speedTranslate * Time.deltaTime, 0);
+        }
+
+        public void EditTextDamage(string text)
+        {
+            gameObject.GetComponent<TextMeshPro>().text = text;
         }
     }
 }

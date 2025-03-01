@@ -14,9 +14,6 @@ namespace BattleQuest
 
         public int MaxHealth;
         public int HP;
-        public bool StunEffect;
-        public bool DebuffEffect;
-        public int DebuffPercent;
         public string NameCharacter;
 
         [SerializeField] private int _poolCount = 10;
@@ -27,6 +24,10 @@ namespace BattleQuest
 
         private Vector3 _positionTextDamage = new(0.3f, 0.3f, -0.7f);
         private GameManager _gameManager;
+        
+        public bool StunEffect {get; private set;}
+        public bool DebuffEffect {get; private set;}
+        public int DebuffPercent {get; private set;}
 
         private void Awake()
         {
@@ -60,8 +61,25 @@ namespace BattleQuest
         {
             var textDamage = _pool.GetFreeElement();
             textDamage.transform.localPosition = positionText;
-            textDamage.GetComponent<TextMeshPro>().text = text;
+            textDamage.EditTextDamage(text);
             StartCoroutine(ReturnToPoolAfterDelay(textDamage, 2f));
+        }
+
+        public void StateStunEffect(bool state)
+        {
+            StunEffect = state;
+            
+        }
+        
+        public void StateDebuffEffect(bool state)
+        {
+            DebuffEffect = state;
+        }
+        
+        public void StateDebuffEffect(bool state, int debuffPercent)
+        {
+            DebuffEffect = state;
+            DebuffPercent = debuffPercent;
         }
 
         private IEnumerator ReturnToPoolAfterDelay(TextDamage textDamage, float delay)

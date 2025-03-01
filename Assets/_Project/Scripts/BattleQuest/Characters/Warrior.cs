@@ -5,15 +5,13 @@ using UnityEngine;
 
 namespace Characters
 {
-    public class Warrior : BaseCharacter<WarriorData>
+    public class Warrior : BaseCharacterGeneric<WarriorData>
     {
 
         protected override void ApplyEffect()
         {
-            if (Random.value < Data.EffectChance)
+            if (TryApplyEffect(Data.EffectChance))
             {
-                EffectCharacter = true;
-
                 StartCoroutine(StunEnemy(Data.EffectTime));
             }
         }
@@ -21,13 +19,15 @@ namespace Characters
 
         private IEnumerator StunEnemy(float effectTime)
         {
+            EnemyInteractionData = Enemy.GetComponent<InteractionData>();
+            
             if (Enemy == null) yield break;
 
             EffectName = $"Получает эффект {Data.EffectName}";
-            Enemy.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
-            Enemy.GetComponent<InteractionData>().StunEffect = true;
+            EnemyInteractionData.CreateTextView(EffectName, PositionTextEffect);
+            EnemyInteractionData.StateDebuffEffect(true);
             yield return new WaitForSeconds(effectTime);
-            Enemy.GetComponent<InteractionData>().StunEffect = false;
+            EnemyInteractionData.StateDebuffEffect(false);
 
             EffectCharacter = false;
         }

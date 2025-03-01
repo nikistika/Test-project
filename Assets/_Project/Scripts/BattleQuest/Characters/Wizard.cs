@@ -5,15 +5,13 @@ using UnityEngine;
 
 namespace Characters
 {
-    public class Wizard : BaseCharacter<WizardData>
+    public class Wizard : BaseCharacterGeneric<WizardData>
     {
 
         protected override void ApplyEffect()
         {
-            if (Random.value < Data.EffectChance)
+            if (TryApplyEffect(Data.EffectChance))
             {
-                EffectCharacter = true;
-
                 StartCoroutine(DebuffEnemy(Data.EffectTime, Data.EffectDebuff));
             }
         }
@@ -21,12 +19,14 @@ namespace Characters
         private IEnumerator DebuffEnemy(float effectTime, int debuffDamagePercent)
         {
             EffectName = $"Получает эффект {Data.EffectName}";
-            Enemy.GetComponent<InteractionData>().CreateTextView(EffectName, PositionTextEffect);
 
-            Enemy.GetComponent<InteractionData>().DebuffEffect = true;
-            Enemy.GetComponent<InteractionData>().DebuffPercent = debuffDamagePercent;
+            EnemyInteractionData = Enemy.GetComponent<InteractionData>();
+            
+            EnemyInteractionData.CreateTextView(EffectName, PositionTextEffect);
+
+            EnemyInteractionData.StateDebuffEffect(true, debuffDamagePercent);
             yield return new WaitForSeconds(effectTime);
-            Enemy.GetComponent<InteractionData>().DebuffEffect = false;
+            EnemyInteractionData.StateDebuffEffect(false);
 
             EffectCharacter = false;
         }
