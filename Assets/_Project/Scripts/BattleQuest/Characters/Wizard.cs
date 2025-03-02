@@ -1,5 +1,4 @@
 using System.Collections;
-using BattleQuest;
 using Scriptable_Objects;
 using UnityEngine;
 
@@ -19,14 +18,12 @@ namespace Characters
         private IEnumerator DebuffEnemy(float effectTime, int debuffDamagePercent)
         {
             EffectName = $"Получает эффект {Data.EffectName}";
-
-            EnemyInteractionData = Enemy.GetComponent<InteractionData>();
             
-            EnemyInteractionData.CreateTextView(EffectName, PositionTextEffect);
+            Enemy.CreateTextView(EffectName, PositionTextEffect);
 
-            EnemyInteractionData.StateDebuffEffect(true, debuffDamagePercent);
+            Enemy.StateDebuffEffect(true, debuffDamagePercent);
             yield return new WaitForSeconds(effectTime);
-            EnemyInteractionData.StateDebuffEffect(false);
+            Enemy.StateDebuffEffect(false);
 
             EffectCharacter = false;
         }

@@ -1,16 +1,21 @@
+using System;
+using System.Collections.Generic;
 using _Project.Scripts.BattleQuest;
 using Characters;
+using UI;
 using UnityEngine;
 
 namespace Patterns
 {
-    public class EntryPointGame : MonoBehaviour
+    public class EntryPointScaneBattle : MonoBehaviour
     {
-
-        [SerializeField] private CharactersFactory _charactersFactory;
-
+        
         private Vector3 _spawnPositionCharacter1 = new (2, 1, 0);
         private Vector3 _spawnPositionCharacter2 = new (-2, 1, 0);
+        
+        [SerializeField] private CharactersFactory _charactersFactory;
+        [SerializeField] private VictoryPanel _victoryPanel;
+
         
         public BaseCharacter Character1 { get; private set; }
         public BaseCharacter Character2 { get; private set; }
@@ -18,13 +23,11 @@ namespace Patterns
         private void Awake()
         {
             Character1 = _charactersFactory.CreateRandomCharacter(_spawnPositionCharacter1);
-            
             Character2 = _charactersFactory.CreateRandomCharacter(_spawnPositionCharacter2);
-        }
-        
-        private void Start()
-        {
-
+            
+            Character1.Construct(_victoryPanel, Character2);
+            Character2.Construct(_victoryPanel, Character1);
+            
         }
         
     }

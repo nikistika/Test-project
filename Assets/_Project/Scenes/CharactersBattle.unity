@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &342339180
+--- !u!1 &249072120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,23 +130,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 342339181}
-  - component: {fileID: 342339182}
-  - component: {fileID: 342339183}
+  - component: {fileID: 249072121}
+  - component: {fileID: 249072122}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &342339181
+--- !u!4 &249072121
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342339180}
+  m_GameObject: {fileID: 249072120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -155,35 +154,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1500976869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &342339182
+--- !u!114 &249072122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342339180}
+  m_GameObject: {fileID: 249072120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23ae852a453fb6843a984719307823c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0caac222c8ee003468979e27ed44cc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _charactersList:
-  - {fileID: 3900615252180131485, guid: 6a9d99fcb974a8f4891da1cbf1956fa0, type: 3}
-  - {fileID: 55486006538484819, guid: e867e53cd1981144d8b370b5177a7624, type: 3}
-  - {fileID: 3905193026128273164, guid: 5e803f845f287544daa37e5ecd72ca05, type: 3}
---- !u!114 &342339183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342339180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3d2d5d62ecbc940bb5a82f8a56d7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemiesList: []
+  _charactersFactory: {fileID: 1562668423}
   _victoryPanel: {fileID: 691053705}
 --- !u!1 &533580411
 GameObject:
@@ -996,9 +979,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 342339181}
   - {fileID: 660824505}
   - {fileID: 1562668422}
+  - {fileID: 249072121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1562668421
@@ -1026,7 +1009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562668421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1045,9 +1028,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2470ddc7d07f4649ae7eb97a74e98147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Archer: {fileID: 3900615252180131485, guid: 6a9d99fcb974a8f4891da1cbf1956fa0, type: 3}
-  Warrior: {fileID: 55486006538484819, guid: e867e53cd1981144d8b370b5177a7624, type: 3}
-  Wizard: {fileID: 3905193026128273164, guid: 5e803f845f287544daa37e5ecd72ca05, type: 3}
+  characters:
+  - {fileID: 7769025860160837266, guid: 6a9d99fcb974a8f4891da1cbf1956fa0, type: 3}
+  - {fileID: 888879187722206870, guid: e867e53cd1981144d8b370b5177a7624, type: 3}
+  - {fileID: 281648084146102593, guid: 5e803f845f287544daa37e5ecd72ca05, type: 3}
 --- !u!1 &1952241198
 GameObject:
   m_ObjectHideFlags: 0

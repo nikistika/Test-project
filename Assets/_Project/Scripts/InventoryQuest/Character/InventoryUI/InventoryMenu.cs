@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Project.Scripts.InventoryQuest;
 using Items;
 using TMPro;
 using UnityEngine;
@@ -6,9 +7,9 @@ using UnityEngine;
 namespace InventoryUI
 {
     
-    public class Inventory : MonoBehaviour
+    public class InventoryMenu : MonoBehaviour
     {
-        [field: SerializeField] public List<GameObject> Slots { get; private set; }
+        [field: SerializeField] public List<SlotInventory> Slots { get; private set; }
         [field: SerializeField] public float InventoryMaxWeight { get; private set; }
         [field: SerializeField] public float CurrentWeight { get; private set; }
         
@@ -26,14 +27,19 @@ namespace InventoryUI
 
         public void AddWeightInInventory(float weight)
         {
+            
+            
             if (CurrentWeight + weight <= InventoryMaxWeight)
             {
+                
                 CurrentWeight += weight;
                 _countWeightText.text = $"Максимальный вес: {CurrentWeight}/{InventoryMaxWeight}";
+                Debug.Log($"CurrentWeight in inventory: {CurrentWeight}");
+
             }
         }
 
-        public void RemoveInFroInventory(float weight)
+        public void RemoveFromInventory(float weight)
         {
             if (CurrentWeight - weight >= 0)
             {
@@ -41,5 +47,24 @@ namespace InventoryUI
                 _countWeightText.text = $"Максимальный вес: {CurrentWeight}/{InventoryMaxWeight}";
             }
         }
+
+        public SlotInventory ReturnFirstFreeSlot()
+        {
+            foreach (var slot in Slots)
+            {
+
+                Debug.Log($"slot: {slot}");
+                Debug.Log($"CurrentSlotItem: {slot.CurrentSlotItem}");
+                
+                if (slot.CurrentSlotItem == null)
+                {
+                    Debug.Log("Return slot");
+                    return slot;
+                }
+            }
+
+            return null;
+        }
+        
     }
 }

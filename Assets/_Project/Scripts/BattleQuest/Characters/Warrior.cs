@@ -1,5 +1,4 @@
 using System.Collections;
-using BattleQuest;
 using Scriptable_Objects;
 using UnityEngine;
 
@@ -19,15 +18,14 @@ namespace Characters
 
         private IEnumerator StunEnemy(float effectTime)
         {
-            EnemyInteractionData = Enemy.GetComponent<InteractionData>();
             
             if (Enemy == null) yield break;
 
             EffectName = $"Получает эффект {Data.EffectName}";
-            EnemyInteractionData.CreateTextView(EffectName, PositionTextEffect);
-            EnemyInteractionData.StateDebuffEffect(true);
+            Enemy.CreateTextView(EffectName, PositionTextEffect);
+            Enemy.StateDebuffEffect(true);
             yield return new WaitForSeconds(effectTime);
-            EnemyInteractionData.StateDebuffEffect(false);
+            Enemy.StateDebuffEffect(false);
 
             EffectCharacter = false;
         }

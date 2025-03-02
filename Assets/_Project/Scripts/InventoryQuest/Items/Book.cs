@@ -1,3 +1,4 @@
+using _Project.Scripts.InventoryQuest;
 using Scriptable_Objects;
 using TMPro;
 using UnityEngine;
@@ -15,21 +16,25 @@ namespace Items
         private void Awake()
         {
             base.Awake();
-
+        
+            WeightItem = _bookData.WeightItem;
+            
             Stackable = _bookData.Stackable;
         }
 
-        public override void ClickAddItemPanelAction(GameObject slot)
-        {
-            if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _bookData.WeightItem)
-            {
-                NewItem = Instantiate(gameObject, slot.transform);
-                TextNewItem = NewItem.GetComponent<Book>().StatusText;
-
-                InventoryObject.AddWeightInInventory(_bookData.WeightItem);
-                TextNewItem.SetActive(true);
-            }
-        }
+        // public override void ClickAddItemPanelAction(SlotInventory slot)
+        // {
+        //     
+        //     
+        //     if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _bookData.WeightItem)
+        //     {
+        //         NewItem = Instantiate(gameObject, slot.transform);
+        //         TextNewItem = NewItem.GetComponent<Book>().StatusText;
+        //
+        //         InventoryMenu.AddWeightInInventory(_bookData.WeightItem);
+        //         TextNewItem.SetActive(true);
+        //     }
+        // }
 
         protected override void ClickInventoryPanelAction()
         {

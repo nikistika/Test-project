@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1443090869798586256}
   - component: {fileID: 6243474996540412561}
-  - component: {fileID: 3993260652588232914}
-  - component: {fileID: 8751155060537924364}
   - component: {fileID: 1547018882217998695}
+  - component: {fileID: 8751155060537924364}
   - component: {fileID: -8579516258800641574}
+  - component: {fileID: 3993260652588232914}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Weapon
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -71,7 +71,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3993260652588232914
+--- !u!222 &1547018882217998695
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845216639751453648}
+  m_CullTransparentMesh: 1
+--- !u!114 &8751155060537924364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,6 +87,34 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2845216639751453648}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd4ad034a754368aadcfa7c85c30e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusText: {fileID: 8988148784582411474}
+  <InventoryMenu>k__BackingField: {fileID: 0}
+  _shieldData: {fileID: 11400000, guid: 7b12698103105f547b34a26063f8b188, type: 2}
+  _hand_r: {fileID: 0}
+--- !u!114 &-8579516258800641574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845216639751453648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d64d4b472609f34cae9ea68c3d41971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3993260652588232914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845216639751453648}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -127,44 +163,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8751155060537924364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2845216639751453648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bd4ad034a754368aadcfa7c85c30e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  panelHP: {fileID: 0}
-  StatusText: {fileID: 8988148784582411474}
-  _shieldData: {fileID: 11400000, guid: 7b12698103105f547b34a26063f8b188, type: 2}
-  _hand_r: {fileID: 0}
---- !u!222 &1547018882217998695
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2845216639751453648}
-  m_CullTransparentMesh: 1
---- !u!114 &-8579516258800641574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2845216639751453648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d64d4b472609f34cae9ea68c3d41971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
 --- !u!1 &8988148784582411474
 GameObject:
   m_ObjectHideFlags: 0

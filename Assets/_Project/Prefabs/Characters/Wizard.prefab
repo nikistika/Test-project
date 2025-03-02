@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 6990539877884273182}
   - component: {fileID: 7369507514326854673}
   - component: {fileID: 281648084146102593}
-  - component: {fileID: 9205210470067320676}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Character
@@ -262,30 +261,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: e70f757ff85698c43a87633b1cbe2f29, type: 2}
-  _nameCharacterTMP: {fileID: 8258359443193604161}
---- !u!114 &9205210470067320676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905193026128273164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b3d1332ef148259ca1af3a9a29314d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 0
-  HP: 0
-  StunEffect: 0
-  DebuffEffect: 0
-  DebuffPercent: 0
-  NameCharacter: 
+  _autoExpand: 0
   _poolCount: 10
-  _autoExpand: 1
   _textPrefab: {fileID: 1270905918520586800, guid: c9cedc8a105f07d488d868d5da79154a, type: 3}
-  _hpCharacterTMP: {fileID: 6614220076965357966}
+  _nameCharacterTMP: {fileID: 8258359443193604161}
   _hpSlider: {fileID: 2127780931158739245}
+  _hpCharacterTMP: {fileID: 6614220076965357966}
 --- !u!1 &6837762555613529040
 GameObject:
   m_ObjectHideFlags: 0

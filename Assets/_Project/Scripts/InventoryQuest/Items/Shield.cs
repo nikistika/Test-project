@@ -13,20 +13,23 @@ namespace Items
         private void Awake()
         {
             base.Awake();
+            
+            WeightItem = _shieldData.WeightItem;
+
             Stackable = _shieldData.Stackable;
         }
 
-        public override void ClickAddItemPanelAction(GameObject slot)
-        {
-            if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _shieldData.WeightItem)
-            {
-                NewItem = Instantiate(gameObject, slot.transform);
-                TextNewItem = NewItem.GetComponent<Shield>().StatusText;
-
-                InventoryObject.AddWeightInInventory(_shieldData.WeightItem);
-                TextNewItem.SetActive(true);
-            }
-        }
+        // public override void ClickAddItemPanelAction(GameObject slot)
+        // {
+        //     if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _shieldData.WeightItem)
+        //     {
+        //         NewItem = Instantiate(gameObject, slot.transform);
+        //         TextNewItem = NewItem.GetComponent<Shield>().StatusText;
+        //
+        //         InventoryMenu.AddWeightInInventory(_shieldData.WeightItem);
+        //         TextNewItem.SetActive(true);
+        //     }
+        // }
 
         protected override void ClickInventoryPanelAction()
         {
@@ -43,10 +46,10 @@ namespace Items
                 }
             }
 
-            if (hasChildWithTag && otherWeapon != null)
-            {
-                otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
-            }
+            // if (hasChildWithTag && otherWeapon != null)
+            // {
+            //     otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
+            // }
 
             Vector3 positionPrefab = new(0.37f, 0, -0.23f);
             Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
@@ -56,7 +59,7 @@ namespace Items
             newShield.transform.localRotation = rotationPrefab;
 
             Destroy(gameObject);
-            InventoryObject.RemoveInFroInventory(_shieldData.WeightItem);
+            InventoryMenu.RemoveFromInventory(_shieldData.WeightItem);
         }
     }
 }

@@ -13,21 +13,23 @@ namespace Items
         private void Awake()
         {
             base.Awake();
+            
+            WeightItem = _maceData.WeightItem;
+            
             Stackable = _maceData.Stackable;
         }
 
-        public override void ClickAddItemPanelAction(GameObject slot)
-        {
-            Debug.Log($"ClickAddItemPanelAction: {slot.name}");
-            if (InventoryObject.InventoryMaxWeight >= InventoryObject.CurrentWeight + _maceData.WeightItem)
-            {
-                NewItem = Instantiate(gameObject, slot.transform);
-                TextNewItem = NewItem.GetComponent<Mace>().StatusText;
-
-                InventoryObject.AddWeightInInventory(_maceData.WeightItem);
-                TextNewItem.SetActive(true);
-            }
-        }
+        // public override void ClickAddItemPanelAction(GameObject slot)
+        // {
+        //     if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _maceData.WeightItem)
+        //     {
+        //         NewItem = Instantiate(gameObject, slot.transform);
+        //         TextNewItem = NewItem.GetComponent<Mace>().StatusText;
+        //
+        //         InventoryMenu.AddWeightInInventory(_maceData.WeightItem);
+        //         TextNewItem.SetActive(true);
+        //     }
+        // }
 
         protected override void ClickInventoryPanelAction()
         {
@@ -44,10 +46,10 @@ namespace Items
                 }
             }
 
-            if (hasChildWithTag && otherWeapon != null)
-            {
-                otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
-            }
+            // if (hasChildWithTag && otherWeapon != null)
+            // {
+            //     otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
+            // }
 
             Vector3 positionPrefab = new(0.04f, -0.05f, -0.38f);
             Quaternion rotationPrefab = Quaternion.Euler(-22.03f, 102.94f, 88.974f);
@@ -57,7 +59,7 @@ namespace Items
             newMace.transform.localRotation = rotationPrefab;
 
             Destroy(gameObject);
-            InventoryObject.RemoveInFroInventory(_maceData.WeightItem);
+            InventoryMenu.RemoveFromInventory(_maceData.WeightItem);
         }
     }
 }

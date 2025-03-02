@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5001164763876712766}
   - component: {fileID: 726208341558713622}
   - component: {fileID: 8048471677107399936}
+  - component: {fileID: 3611267357397082515}
   - component: {fileID: 2948862569011084807}
   m_Layer: 0
   m_Name: Mace
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -224,12 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d549301ba53a4a248c0838f4fbb6a5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  panelHP: {fileID: 0}
   StatusText: {fileID: 2115039083411333393}
+  <InventoryMenu>k__BackingField: {fileID: 0}
   _maceData: {fileID: 11400000, guid: 19fb2534a92460247b9cbd357a8942ca, type: 2}
   _hand_r: {fileID: 0}
---- !u!114 &2948862569011084807
+--- !u!114 &3611267357397082515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,6 +237,18 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9168475047957945291}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d64d4b472609f34cae9ea68c3d41971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2948862569011084807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168475047957945291}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
