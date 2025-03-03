@@ -1,5 +1,6 @@
 using _Project.Scripts.InventoryQuest;
 using InventoryUI;
+using Scriptable_Objects;
 using UI;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Items
         protected const string PANEL_INVETNARY = "PanelInventary";
         protected const string FULL_STACK = "FullStack";
 
+        [field: SerializeField] public ItemData ItemData {  get; protected set; }
         
         protected HP_Panel PanelHP;
         [SerializeField] protected GameObject StatusText;
@@ -21,10 +23,10 @@ namespace Items
 
         protected RightHandState RightHand;
         
-        protected bool Stackable;
+        public bool Stackable {  get; protected set; }
         protected string ThisItemTag;
         
-        public float WeightItem { get; protected set; }
+        //public float WeightItem { get; protected set; }
         [field: SerializeField] protected InventoryMenu InventoryMenu { get; private set; }
 
         protected void Awake()

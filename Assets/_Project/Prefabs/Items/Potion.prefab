@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae638dd6a2b4ac092c4ca3c6df0e692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ItemData>k__BackingField: {fileID: 11400000, guid: dabbb7a4425c2b341aa62d4cf804ff25, type: 2}
   StatusText: {fileID: 6623438500121249316}
   <InventoryMenu>k__BackingField: {fileID: 0}
   CurrentCount: 0
-  _potionData: {fileID: 11400000, guid: dabbb7a4425c2b341aa62d4cf804ff25, type: 2}
 --- !u!1 &6623438500121249316
 GameObject:
   m_ObjectHideFlags: 0

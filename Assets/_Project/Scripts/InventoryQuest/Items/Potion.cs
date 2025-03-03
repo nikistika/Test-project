@@ -9,13 +9,15 @@ namespace Items
         
         public int CurrentCount;
         
-        [SerializeField] private PotionData _potionData;
+        private PotionData _potionData;
         
         private void Awake()
         {
             base.Awake();
-            
-            WeightItem = _potionData.WeightItem;
+
+            _potionData = ItemData as PotionData;
+
+            //WeightItem = ItemData.WeightItem;
             
             Stackable = _potionData.Stackable;
         }

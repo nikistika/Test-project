@@ -225,9 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d549301ba53a4a248c0838f4fbb6a5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ItemData>k__BackingField: {fileID: 11400000, guid: 19fb2534a92460247b9cbd357a8942ca, type: 2}
   StatusText: {fileID: 2115039083411333393}
   <InventoryMenu>k__BackingField: {fileID: 0}
-  _maceData: {fileID: 11400000, guid: 19fb2534a92460247b9cbd357a8942ca, type: 2}
   _hand_r: {fileID: 0}
 --- !u!114 &3611267357397082515
 MonoBehaviour:

@@ -280,6 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a098b5b1385237248b1779605f68b565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ItemData>k__BackingField: {fileID: 11400000, guid: a870e477896bc9c419903bf3b51fa2cd, type: 2}
   StatusText: {fileID: 4385166908325369171}
   <InventoryMenu>k__BackingField: {fileID: 0}
-  _bookData: {fileID: 11400000, guid: a870e477896bc9c419903bf3b51fa2cd, type: 2}

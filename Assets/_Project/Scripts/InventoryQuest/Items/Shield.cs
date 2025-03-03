@@ -7,14 +7,18 @@ namespace Items
     public class Shield : Item
     {
         
-        [SerializeField] private ShieldData _shieldData;
+        private ShieldData _shieldData;
         [SerializeField] private GameObject _hand_r;
 
         private void Awake()
         {
             base.Awake();
-            
-            WeightItem = _shieldData.WeightItem;
+
+            _shieldData = ItemData as ShieldData;
+
+            Debug.Log($"_shieldData: {_shieldData}");
+
+            //WeightItem = ItemData.WeightItem;
 
             Stackable = _shieldData.Stackable;
         }

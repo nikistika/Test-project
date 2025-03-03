@@ -7,14 +7,16 @@ namespace Items
 {
     public class Mace : Item
     {
-        [SerializeField] private MaceData _maceData;
+        private MaceData _maceData;
         [SerializeField] private GameObject _hand_r;
 
         private void Awake()
         {
             base.Awake();
-            
-            WeightItem = _maceData.WeightItem;
+
+            _maceData = ItemData as MaceData;
+
+            //WeightItem = ItemData.WeightItem;
             
             Stackable = _maceData.Stackable;
         }

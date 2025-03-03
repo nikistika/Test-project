@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd4ad034a754368aadcfa7c85c30e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ItemData>k__BackingField: {fileID: 11400000, guid: 7b12698103105f547b34a26063f8b188, type: 2}
   StatusText: {fileID: 8988148784582411474}
   <InventoryMenu>k__BackingField: {fileID: 0}
-  _shieldData: {fileID: 11400000, guid: 7b12698103105f547b34a26063f8b188, type: 2}
   _hand_r: {fileID: 0}
 --- !u!114 &-8579516258800641574
 MonoBehaviour:

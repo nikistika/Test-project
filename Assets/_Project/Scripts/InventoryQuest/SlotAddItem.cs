@@ -1,5 +1,6 @@
 using InventoryUI;
 using Items;
+using Scriptable_Objects;
 using UnityEngine;
 
 namespace _Project.Scripts.InventoryQuest
@@ -21,20 +22,22 @@ namespace _Project.Scripts.InventoryQuest
         {
             CurrentSlotItem = item;
             Instantiate(CurrentSlotItem.gameObject, gameObject.transform); // Создаём копию в сцене
+
         }
 
         public void OnClickItem()
         {
             if (CurrentSlotItem != null && 
-                _inventoryMenu.CurrentWeight + CurrentSlotItem.WeightItem != _inventoryMenu.InventoryMaxWeight)
+                !CurrentSlotItem.Stackable &&
+                _inventoryMenu.CurrentWeight + CurrentSlotItem.ItemData.WeightItem <= _inventoryMenu.InventoryMaxWeight)
             {
                 Debug.Log("OnClickItem");
                 CurrentSlotItem.ClickAddItemPanelAction
                     (_inventoryMenu.ReturnFirstFreeSlot(), CurrentSlotItem);
                 
-                Debug.Log($"CurrentSlotItem.WeightItem: {CurrentSlotItem.WeightItem}");
+                Debug.Log($"CurrentSlotItem.WeightItem: {CurrentSlotItem.ItemData.WeightItem}");
                 
-                _inventoryMenu.AddWeightInInventory(CurrentSlotItem.WeightItem);
+                _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
             }
         }
     }

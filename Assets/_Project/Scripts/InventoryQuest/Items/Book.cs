@@ -9,15 +9,18 @@ namespace Items
     {
         private const string ReadItStatus = "Прочитано";
 
-        [SerializeField] private BookData _bookData;
+        private BookData _bookData;
 
         private bool _readIt;
 
         private void Awake()
         {
             base.Awake();
-        
-            WeightItem = _bookData.WeightItem;
+
+
+            _bookData = ItemData as BookData;
+
+            //WeightItem = ItemData.WeightItem;
             
             Stackable = _bookData.Stackable;
         }
