@@ -27,18 +27,41 @@ namespace _Project.Scripts.InventoryQuest
 
         public void OnClickItem()
         {
-            if (CurrentSlotItem != null && 
-                !CurrentSlotItem.Stackable &&
+            if (!CurrentSlotItem.ItemData.Stackable &&
+                CurrentSlotItem != null && 
                 _inventoryMenu.CurrentWeight + CurrentSlotItem.ItemData.WeightItem <= _inventoryMenu.InventoryMaxWeight)
             {
-                Debug.Log("OnClickItem");
                 CurrentSlotItem.ClickAddItemPanelAction
                     (_inventoryMenu.ReturnFirstFreeSlot(), CurrentSlotItem);
                 
-                Debug.Log($"CurrentSlotItem.WeightItem: {CurrentSlotItem.ItemData.WeightItem}");
-                
                 _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
             }
+            
+            if (CurrentSlotItem.ItemData.Stackable &&
+                CurrentSlotItem != null && 
+                _inventoryMenu.CurrentWeight + CurrentSlotItem.ItemData.WeightItem <= _inventoryMenu.InventoryMaxWeight)
+            {
+                
+                Item stackableItemInventory = _inventoryMenu.ReturnStackableItemFromSlot(CurrentSlotItem);
+                if (stackableItemInventory != null && 
+                    stackableItemInventory.CurrentCount < stackableItemInventory.ItemData.MaxCount)
+                {
+                    stackableItemInventory.AddItemsToStack(1);
+                    _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
+                    
+                }
+                else
+                {
+                    Debug.Log("else OnClickItem");
+
+                    CurrentSlotItem.ClickAddItemPanelAction
+                        (_inventoryMenu.ReturnFirstFreeSlot(), CurrentSlotItem);
+                    _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
+                }
+                
+                
+            }
+            
         }
     }
 }

@@ -11,7 +11,7 @@ namespace _Project.Scripts.InventoryQuest
         public void AddNewItemInCurrentSlot(Item item)
         {
             CurrentSlotItem = Instantiate(item.gameObject, transform).GetComponent<Item>();
-
+            CurrentSlotItem.ActivateStatusText();
         }
         
         

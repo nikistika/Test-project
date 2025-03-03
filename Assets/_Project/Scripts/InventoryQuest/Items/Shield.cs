@@ -15,9 +15,7 @@ namespace Items
             base.Awake();
 
             _shieldData = ItemData as ShieldData;
-
-            Debug.Log($"_shieldData: {_shieldData}");
-
+            
             //WeightItem = ItemData.WeightItem;
 
             Stackable = _shieldData.Stackable;
@@ -35,35 +33,35 @@ namespace Items
         //     }
         // }
 
-        protected override void ClickInventoryPanelAction()
-        {
-            GameObject handRight = GameObject.FindGameObjectWithTag("Hand_r");
-            bool hasChildWithTag = false;
-            GameObject otherWeapon = null;
-            foreach (Transform child in handRight.transform)
-            {
-                if (child.CompareTag("Weapon")) // Проверка тега
-                {
-                    hasChildWithTag = true;
-                    otherWeapon = child.gameObject;
-                    break; // Если нашли, можно сразу выйти из цикла
-                }
-            }
-
-            // if (hasChildWithTag && otherWeapon != null)
-            // {
-            //     otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
-            // }
-
-            Vector3 positionPrefab = new(0.37f, 0, -0.23f);
-            Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
-
-            GameObject newShield = Instantiate(_shieldData.Prefab, _hand_r.transform);
-            newShield.transform.localPosition = positionPrefab;
-            newShield.transform.localRotation = rotationPrefab;
-
-            Destroy(gameObject);
-            InventoryMenu.RemoveFromInventory(_shieldData.WeightItem);
-        }
+        // protected override void ClickInventoryPanelAction()
+        // {
+        //     GameObject handRight = GameObject.FindGameObjectWithTag("Hand_r");
+        //     bool hasChildWithTag = false;
+        //     GameObject otherWeapon = null;
+        //     foreach (Transform child in handRight.transform)
+        //     {
+        //         if (child.CompareTag("Weapon")) // Проверка тега
+        //         {
+        //             hasChildWithTag = true;
+        //             otherWeapon = child.gameObject;
+        //             break; // Если нашли, можно сразу выйти из цикла
+        //         }
+        //     }
+        //
+        //     // if (hasChildWithTag && otherWeapon != null)
+        //     // {
+        //     //     otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
+        //     // }
+        //
+        //     Vector3 positionPrefab = new(0.37f, 0, -0.23f);
+        //     Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
+        //
+        //     GameObject newShield = Instantiate(_shieldData.Prefab, _hand_r.transform);
+        //     newShield.transform.localPosition = positionPrefab;
+        //     newShield.transform.localRotation = rotationPrefab;
+        //
+        //     Destroy(gameObject);
+        //     InventoryMenu.RemoveFromInventory(_shieldData.WeightItem);
+        // }
     }
 }

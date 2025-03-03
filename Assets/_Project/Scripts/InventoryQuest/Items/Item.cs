@@ -1,6 +1,7 @@
 using _Project.Scripts.InventoryQuest;
 using InventoryUI;
 using Scriptable_Objects;
+using TMPro;
 using UI;
 using UnityEngine;
 
@@ -14,8 +15,10 @@ namespace Items
 
         [field: SerializeField] public ItemData ItemData {  get; protected set; }
         
+        public int CurrentCount { get; private set; }
+        
         protected HP_Panel PanelHP;
-        [SerializeField] protected GameObject StatusText;
+        [SerializeField] protected TMP_Text StatusText;
 
         protected GameObject ParentObject;
         protected GameObject NewItem;
@@ -78,6 +81,23 @@ namespace Items
             // }
         }
 
+        public void ActivateStatusText()
+        {
+            StatusText.gameObject.SetActive(true);
+        }
+
+        public bool AddItemsToStack(int amount)
+        {
+            if (CurrentCount + amount <= ItemData.MaxCount)
+            {
+                CurrentCount += amount;
+                StatusText.text = $"{CurrentCount}/{ItemData.MaxCount}";
+                return true;
+            }
+            return false;
+            
+        }
+        
         public void ClickAddItemPanelAction(SlotInventory slot, Item item)
         {
             slot.AddNewItemInCurrentSlot(item);

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ItemData>k__BackingField: {fileID: 11400000, guid: dabbb7a4425c2b341aa62d4cf804ff25, type: 2}
-  StatusText: {fileID: 6623438500121249316}
+  StatusText: {fileID: 7804079113441223336}
   <InventoryMenu>k__BackingField: {fileID: 0}
   CurrentCount: 0
 --- !u!1 &6623438500121249316

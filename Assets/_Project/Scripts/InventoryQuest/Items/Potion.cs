@@ -7,7 +7,6 @@ namespace Items
     public class Potion : Item
     {
         
-        public int CurrentCount;
         
         private PotionData _potionData;
         
@@ -37,33 +36,33 @@ namespace Items
         //     }
         // }
 
-        public override void ClickAddItemPanelAction(GameObject slot, int quantityItem)
-        {
-            if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _potionData.WeightItem)
-            {
-                var potion = slot.transform.GetChild(0).gameObject.GetComponent<Potion>();
-                if (potion.CurrentCount + quantityItem <= _potionData.MaxCount)
-                {
-                    potion.CurrentCount += quantityItem;
-                    InventoryMenu.AddWeightInInventory(_potionData.WeightItem);
-
-                    potion.StatusText.GetComponent<TMP_Text>().text = $"{potion.CurrentCount}/{_potionData.MaxCount}";
-                }
-                else if (potion.CurrentCount + quantityItem > _potionData.MaxCount)
-                {
-                    potion.gameObject.tag = FULL_STACK;
-                    OnClickIcon();
-                }
-            }
-        }
-
-        protected override void ClickInventoryPanelAction()
-        {
-            PanelHP.Heal(_potionData.HealQuantity);
-            CurrentCount -= 1;
-            InventoryMenu.RemoveFromInventory(_potionData.WeightItem);
-            if (CurrentCount <= 0) Destroy(gameObject);
-            StatusText.GetComponent<TMP_Text>().text = $"{CurrentCount}/{_potionData.MaxCount}";
-        }
+        // public override void ClickAddItemPanelAction(GameObject slot, int quantityItem)
+        // {
+        //     if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _potionData.WeightItem)
+        //     {
+        //         var potion = slot.transform.GetChild(0).gameObject.GetComponent<Potion>();
+        //         if (potion.CurrentCount + quantityItem <= _potionData.MaxCount)
+        //         {
+        //             potion.CurrentCount += quantityItem;
+        //             InventoryMenu.AddWeightInInventory(_potionData.WeightItem);
+        //
+        //             potion.StatusText.GetComponent<TMP_Text>().text = $"{potion.CurrentCount}/{_potionData.MaxCount}";
+        //         }
+        //         else if (potion.CurrentCount + quantityItem > _potionData.MaxCount)
+        //         {
+        //             potion.gameObject.tag = FULL_STACK;
+        //             OnClickIcon();
+        //         }
+        //     }
+        // }
+        //
+        // protected override void ClickInventoryPanelAction()
+        // {
+        //     PanelHP.Heal(_potionData.HealQuantity);
+        //     CurrentCount -= 1;
+        //     InventoryMenu.RemoveFromInventory(_potionData.WeightItem);
+        //     if (CurrentCount <= 0) Destroy(gameObject);
+        //     StatusText.GetComponent<TMP_Text>().text = $"{CurrentCount}/{_potionData.MaxCount}";
+        // }
     }
 }

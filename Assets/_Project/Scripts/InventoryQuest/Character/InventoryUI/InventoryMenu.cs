@@ -6,15 +6,14 @@ using UnityEngine;
 
 namespace InventoryUI
 {
-    
     public class InventoryMenu : MonoBehaviour
     {
         [field: SerializeField] public List<SlotInventory> Slots { get; private set; }
         [field: SerializeField] public float InventoryMaxWeight { get; private set; }
         [field: SerializeField] public float CurrentWeight { get; private set; }
-        
+
         [SerializeField] private TMP_Text _countWeightText;
-        
+
         private void Awake()
         {
             _countWeightText.text = $"Максимальный вес: {CurrentWeight}/{InventoryMaxWeight}";
@@ -27,15 +26,10 @@ namespace InventoryUI
 
         public void AddWeightInInventory(float weight)
         {
-            
-            
             if (CurrentWeight + weight <= InventoryMaxWeight)
             {
-                
                 CurrentWeight += weight;
                 _countWeightText.text = $"Максимальный вес: {CurrentWeight}/{InventoryMaxWeight}";
-                Debug.Log($"CurrentWeight in inventory: {CurrentWeight}");
-
             }
         }
 
@@ -52,19 +46,34 @@ namespace InventoryUI
         {
             foreach (var slot in Slots)
             {
-
-                Debug.Log($"slot: {slot}");
-                Debug.Log($"CurrentSlotItem: {slot.CurrentSlotItem}");
-                
                 if (slot.CurrentSlotItem == null)
                 {
-                    Debug.Log("Return slot");
                     return slot;
                 }
             }
 
             return null;
         }
-        
+
+        public Item ReturnStackableItemFromSlot(Item item)
+        {
+            foreach (var slot in Slots)
+            {
+                if (slot.transform.childCount != 0)
+                {
+
+                    Item inventoryItem = slot.transform.GetChild(0).GetComponent<Item>();
+                    string inventoryItemName = inventoryItem.ItemData.NameItem;
+                    string addPanelItemName = item.ItemData.NameItem;
+                    
+                    if (inventoryItemName == addPanelItemName)
+                    {
+                        return inventoryItem;
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 }

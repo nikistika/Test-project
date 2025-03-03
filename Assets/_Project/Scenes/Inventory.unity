@@ -5188,7 +5188,7 @@ MonoBehaviour:
   - {fileID: 818989621}
   - {fileID: 1662449693}
   - {fileID: 1201979643}
-  <InventoryMaxWeight>k__BackingField: 15
+  <InventoryMaxWeight>k__BackingField: 35
   <CurrentWeight>k__BackingField: 0
   _countWeightText: {fileID: 815066139}
 --- !u!1001 &1951369955

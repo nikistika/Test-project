@@ -9,5 +9,7 @@ namespace Scriptable_Objects
         [field: SerializeField] public Sprite AssetImage { get; private set; }
         [field: SerializeField] public bool Stackable { get; private set; }
         [field: SerializeField] public float WeightItem { get; private set; }
+        [field: SerializeField] public int MaxCount { get; private set; }
+
     }
 }

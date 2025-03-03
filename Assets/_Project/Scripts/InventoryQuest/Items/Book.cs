@@ -39,10 +39,10 @@ namespace Items
         //     }
         // }
 
-        protected override void ClickInventoryPanelAction()
-        {
-            _readIt = true;
-            StatusText.GetComponent<TMP_Text>().text = ReadItStatus;
-        }
+        // protected override void ClickInventoryPanelAction()
+        // {
+        //     _readIt = true;
+        //     StatusText.GetComponent<TMP_Text>().text = ReadItStatus;
+        // }
     }
 }
