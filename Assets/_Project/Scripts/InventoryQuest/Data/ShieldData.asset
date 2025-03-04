@@ -16,4 +16,5 @@ MonoBehaviour:
   <AssetImage>k__BackingField: {fileID: 21300000, guid: e5725b79721b19e499d51955bc4a5ca1, type: 3}
   <Stackable>k__BackingField: 0
   <WeightItem>k__BackingField: 4
-  <Prefab>k__BackingField: {fileID: 2845216639751453648, guid: ad39d600605e3f4488937e4bf153f02f, type: 3}
+  <MaxCount>k__BackingField: 0
+  <Prefab>k__BackingField: {fileID: 1113306130731123678, guid: 6abeed541f2193941b3b38435de85b3d, type: 3}

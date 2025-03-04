@@ -11,7 +11,16 @@ namespace _Project.Scripts.InventoryQuest
         public void AddNewItemInCurrentSlot(Item item)
         {
             CurrentSlotItem = Instantiate(item.gameObject, transform).GetComponent<Item>();
+            CurrentSlotItem.Construct(item.PanelHP, item.InventoryMenu, item.RightHand);
+
+            CurrentSlotItem.AddItemsToStack(1);
             CurrentSlotItem.ActivateStatusText();
+
+        }
+
+        public void OnClickItem()
+        {
+            CurrentSlotItem.ItemEffect();
         }
         
         

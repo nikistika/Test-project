@@ -12,13 +12,20 @@ namespace Items
 
         private void Awake()
         {
-            base.Awake();
 
             _shieldData = ItemData as ShieldData;
             
             //WeightItem = ItemData.WeightItem;
 
             Stackable = _shieldData.Stackable;
+        }
+
+        public override void ItemEffect()
+        {
+            Vector3 positionPrefab = new(0.35f, 0, -0.13f);
+            Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
+            
+            RightHand.TakeWeapon(this ,positionPrefab, rotationPrefab);
         }
 
         // public override void ClickAddItemPanelAction(GameObject slot)

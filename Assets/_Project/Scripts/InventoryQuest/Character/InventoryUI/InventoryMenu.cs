@@ -33,7 +33,7 @@ namespace InventoryUI
             }
         }
 
-        public void RemoveFromInventory(float weight)
+        public void RemoveWeightFromInventory(float weight)
         {
             if (CurrentWeight - weight >= 0)
             {
@@ -61,14 +61,16 @@ namespace InventoryUI
             {
                 if (slot.transform.childCount != 0)
                 {
-
                     Item inventoryItem = slot.transform.GetChild(0).GetComponent<Item>();
-                    string inventoryItemName = inventoryItem.ItemData.NameItem;
-                    string addPanelItemName = item.ItemData.NameItem;
-                    
-                    if (inventoryItemName == addPanelItemName)
+                    if (inventoryItem.CurrentCount < inventoryItem.ItemData.MaxCount)
                     {
-                        return inventoryItem;
+                        string inventoryItemName = inventoryItem.ItemData.NameItem;
+                        string addPanelItemName = item.ItemData.NameItem;
+
+                        if (inventoryItemName == addPanelItemName)
+                        {
+                            return inventoryItem;
+                        }
                     }
                 }
             }

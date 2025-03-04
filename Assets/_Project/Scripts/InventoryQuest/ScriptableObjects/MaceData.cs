@@ -3,8 +3,7 @@ using UnityEngine;
 namespace Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "NewMaceData", menuName = "ItemData/NewMaceData")]
-    public class MaceData : ItemData
+    public class MaceData : WeaponData
     {
-        [field: SerializeField] public GameObject Prefub { get; private set; }
     }
 }

@@ -9,76 +9,28 @@ namespace Items
 {
     public class Item : MonoBehaviour
     {
-        protected const string PANEL_ADD_ITEM = "PanelAddItem";
-        protected const string PANEL_INVETNARY = "PanelInventary";
-        protected const string FULL_STACK = "FullStack";
+
 
         [field: SerializeField] public ItemData ItemData {  get; protected set; }
         
         public int CurrentCount { get; private set; }
         
-        protected HP_Panel PanelHP;
+        public HP_Panel PanelHP {  get; private set; }
+        
+        public InventoryMenu InventoryMenu { get; private set; }
+        public RightHandState RightHand {  get; protected set; }
+        
         [SerializeField] protected TMP_Text StatusText;
-
-        protected GameObject ParentObject;
-        protected GameObject NewItem;
-        protected GameObject TextNewItem;
-
-        protected RightHandState RightHand;
         
         public bool Stackable {  get; protected set; }
-        protected string ThisItemTag;
         
-        //public float WeightItem { get; protected set; }
-        [field: SerializeField] protected InventoryMenu InventoryMenu { get; private set; }
-
-        protected void Awake()
-        {
-            ThisItemTag = gameObject.tag;
-        }
+        
 
         public void Construct(HP_Panel hpPanel, InventoryMenu inventoryMenu, RightHandState rightHandRight)
         {
             PanelHP = hpPanel;
             InventoryMenu = inventoryMenu;
             RightHand = rightHandRight;
-        }
-        
-        public void OnClickIcon()
-        {
-            // if (ParentObject.tag == PANEL_ADD_ITEM)
-            // {
-            //     foreach (GameObject slot in InventoryMenu.Slots)
-            //     {
-            //         if (slot.transform.childCount == 1 && Stackable &&
-            //             !slot.transform.GetChild(0).CompareTag(tag: FULL_STACK))
-            //         {
-            //             string objectTag = slot.transform.GetChild(0).tag;
-            //             if (Stackable && objectTag == ThisItemTag)
-            //             {
-            //                 ClickAddItemPanelAction(slot, 1);
-            //                 break;
-            //             }
-            //         }
-            //
-            //         if (slot.transform.childCount == 0 && Stackable)
-            //         {
-            //             ClickAddItemPanelAction(slot);
-            //             break;
-            //         }
-            //
-            //         if (slot.transform.childCount == 0 && !Stackable)
-            //         {
-            //             ClickAddItemPanelAction(slot);
-            //             break;
-            //         }
-            //     }
-            // }
-            //
-            // if (ParentObject.tag == PANEL_INVETNARY)
-            // {
-            //     ClickInventoryPanelAction();
-            // }
         }
 
         public void ActivateStatusText()
@@ -97,18 +49,22 @@ namespace Items
             return false;
             
         }
+
+        public void RemoveItemFromStack(int amount)
+        {
+            CurrentCount -= amount;
+            StatusText.text = $"{CurrentCount}/{ItemData.MaxCount}";
+        }
         
-        public void ClickAddItemPanelAction(SlotInventory slot, Item item)
+        
+        public void AddNewItem(SlotInventory slot, Item item)
         {
             slot.AddNewItemInCurrentSlot(item);
         }
 
-        protected virtual void ClickInventoryPanelAction()
+        public virtual void ItemEffect()
         {
         }
-
-        public virtual void ClickAddItemPanelAction(GameObject slot, int quantityItem)
-        {
-        }
+        
     }
 }

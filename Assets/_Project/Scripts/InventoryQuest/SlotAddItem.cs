@@ -21,7 +21,8 @@ namespace _Project.Scripts.InventoryQuest
         public void AddItemInCurrentSlot(Item item)
         {
             CurrentSlotItem = item;
-            Instantiate(CurrentSlotItem.gameObject, gameObject.transform); // Создаём копию в сцене
+            var newItem = Instantiate(CurrentSlotItem.gameObject, gameObject.transform).GetComponent<Item>(); // Создаём копию в сцене
+            newItem.Construct(item.PanelHP, item.InventoryMenu, item.RightHand);
 
         }
 
@@ -31,7 +32,7 @@ namespace _Project.Scripts.InventoryQuest
                 CurrentSlotItem != null && 
                 _inventoryMenu.CurrentWeight + CurrentSlotItem.ItemData.WeightItem <= _inventoryMenu.InventoryMaxWeight)
             {
-                CurrentSlotItem.ClickAddItemPanelAction
+                CurrentSlotItem.AddNewItem
                     (_inventoryMenu.ReturnFirstFreeSlot(), CurrentSlotItem);
                 
                 _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
@@ -43,6 +44,7 @@ namespace _Project.Scripts.InventoryQuest
             {
                 
                 Item stackableItemInventory = _inventoryMenu.ReturnStackableItemFromSlot(CurrentSlotItem);
+                
                 if (stackableItemInventory != null && 
                     stackableItemInventory.CurrentCount < stackableItemInventory.ItemData.MaxCount)
                 {
@@ -53,9 +55,9 @@ namespace _Project.Scripts.InventoryQuest
                 else
                 {
                     Debug.Log("else OnClickItem");
-
-                    CurrentSlotItem.ClickAddItemPanelAction
+                    CurrentSlotItem.AddNewItem
                         (_inventoryMenu.ReturnFirstFreeSlot(), CurrentSlotItem);
+                    
                     _inventoryMenu.AddWeightInInventory(CurrentSlotItem.ItemData.WeightItem);
                 }
                 

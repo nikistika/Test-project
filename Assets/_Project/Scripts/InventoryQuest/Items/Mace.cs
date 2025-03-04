@@ -8,19 +8,16 @@ namespace Items
     public class Mace : Item
     {
         private MaceData _maceData;
-        [SerializeField] private GameObject _hand_r;
 
         private void Awake()
         {
-            base.Awake();
 
             _maceData = ItemData as MaceData;
-
-            //WeightItem = ItemData.WeightItem;
-            
             Stackable = _maceData.Stackable;
 
         }
+        
+        
 
         // public override void ClickAddItemPanelAction(GameObject slot)
         // {

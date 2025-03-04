@@ -3,8 +3,7 @@ using UnityEngine;
 namespace Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "NewShieldData", menuName = "ItemData/NewShieldData")]
-    public class ShieldData : ItemData
+    public class ShieldData : WeaponData
     {
-        [field: SerializeField] public GameObject Prefab { get; private set; }
     }
 }
