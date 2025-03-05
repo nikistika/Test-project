@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Chatacter
 {
     public class HP_Panel : MonoBehaviour
     {
@@ -18,19 +18,6 @@ namespace UI
             EditHPPanel(_hp);
         }
 
-        private void GetDamage(int damage)
-        {
-            if (_hp - damage < 0)
-            {
-                _hp = 0;
-                EditHPPanel(_hp);
-            }
-            else if (_hp > 0)
-            {
-                _hp -= damage;
-                EditHPPanel(_hp);
-            }
-        }
 
         public void Heal(int healCount)
         {
@@ -47,12 +34,26 @@ namespace UI
             }
         }
 
+        public void Get25Damage() => GetDamage(25);
+
         private void EditHPPanel(int hp)
         {
             _hpSlider.value = hp;
             _hpCharacterTMP.text = $"{hp}/{_maxHealth}";
         }
 
-        public void Get25Damage() => GetDamage(25);
+        private void GetDamage(int damage)
+        {
+            if (_hp - damage < 0)
+            {
+                _hp = 0;
+                EditHPPanel(_hp);
+            }
+            else if (_hp > 0)
+            {
+                _hp -= damage;
+                EditHPPanel(_hp);
+            }
+        }
     }
 }

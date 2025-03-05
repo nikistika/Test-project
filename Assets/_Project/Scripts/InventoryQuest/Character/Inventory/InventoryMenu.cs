@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using _Project.Scripts.InventoryQuest;
+using InventoryQuest;
 using Items;
 using TMPro;
 using UnityEngine;
 
-namespace InventoryUI
+namespace InventoryQuest
 {
     public class InventoryMenu : MonoBehaviour
     {

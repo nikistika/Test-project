@@ -1,86 +1,20 @@
-using Character;
-using InventoryUI;
 using Scriptable_Objects;
 using UnityEngine;
 
 namespace Items
 {
-    public class Shield : Item
+    public class Shield : Weapon
     {
-        
         private ShieldData _shieldData;
-        //[SerializeField] private GameObject _hand_r;
 
         private void Awake()
         {
-
             _shieldData = ItemData as ShieldData;
-            
-            //WeightItem = ItemData.WeightItem;
-
             Stackable = _shieldData.Stackable;
+            
+            positionPrefab = new(0.35f, 0, -0.13f);
+            rotationPrefab = Quaternion.Euler(-72, -282, 36);
         }
-
-        public override void ItemEffect()
-        {
-            Vector3 positionPrefab = new(0.35f, 0, -0.13f);
-            Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
-
-            if (RightHand.CurrentWeapon != null)
-            {
-                var freeSlotInventory = InventoryMenu.ReturnFirstFreeSlot();
-                var CurrentWeaponItem = RightHand.CurrentWeapon.GetComponent<Item>();
-
-                CurrentWeaponItem.AddNewItem(freeSlotInventory, CurrentWeaponItem);
-                CurrentWeaponItem.OnDestroyItemInSlot();
-                //TODO: переделать функцию
-            }
-
-            RightHand.TakeWeapon(this ,positionPrefab, rotationPrefab);
-            Destroy(this);
-        }
-
-        // public override void ClickAddItemPanelAction(GameObject slot)
-        // {
-        //     if (InventoryMenu.InventoryMaxWeight >= InventoryMenu.CurrentWeight + _shieldData.WeightItem)
-        //     {
-        //         NewItem = Instantiate(gameObject, slot.transform);
-        //         TextNewItem = NewItem.GetComponent<Shield>().StatusText;
-        //
-        //         InventoryMenu.AddWeightInInventory(_shieldData.WeightItem);
-        //         TextNewItem.SetActive(true);
-        //     }
-        // }
-
-        // protected override void ClickInventoryPanelAction()
-        // {
-        //     GameObject handRight = GameObject.FindGameObjectWithTag("Hand_r");
-        //     bool hasChildWithTag = false;
-        //     GameObject otherWeapon = null;
-        //     foreach (Transform child in handRight.transform)
-        //     {
-        //         if (child.CompareTag("Weapon")) // Проверка тега
-        //         {
-        //             hasChildWithTag = true;
-        //             otherWeapon = child.gameObject;
-        //             break; // Если нашли, можно сразу выйти из цикла
-        //         }
-        //     }
-        //
-        //     // if (hasChildWithTag && otherWeapon != null)
-        //     // {
-        //     //     otherWeapon.GetComponent<Weapon>().ReturnItemInInventory();
-        //     // }
-        //
-        //     Vector3 positionPrefab = new(0.37f, 0, -0.23f);
-        //     Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
-        //
-        //     GameObject newShield = Instantiate(_shieldData.Prefab, _hand_r.transform);
-        //     newShield.transform.localPosition = positionPrefab;
-        //     newShield.transform.localRotation = rotationPrefab;
-        //
-        //     Destroy(gameObject);
-        //     InventoryMenu.RemoveFromInventory(_shieldData.WeightItem);
-        // }
+        
     }
 }

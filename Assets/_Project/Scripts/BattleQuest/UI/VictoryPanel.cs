@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace Chatacter
 {
     public class VictoryPanel : MonoBehaviour
     {

@@ -1,8 +1,7 @@
 using UnityEngine;
 
-namespace InventoryUI
+namespace InventoryQuest
 {
-    
     public class SelectMenu : MonoBehaviour
     {
         public void OpenCloseSelectMenu()

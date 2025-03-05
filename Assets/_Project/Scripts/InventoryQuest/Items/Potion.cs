@@ -1,14 +1,12 @@
 using Scriptable_Objects;
 using TMPro;
-using UnityEngine;
 
 namespace Items
 {
     public class Potion : Item
     {
-        
         private PotionData _potionData;
-        
+
         private void Awake()
         {
             _potionData = ItemData as PotionData;
@@ -17,13 +15,11 @@ namespace Items
 
         public override void ItemEffect()
         {
-
             PanelHP.Heal(_potionData.HealQuantity);
             RemoveItemFromStack(1);
             InventoryMenu.RemoveWeightFromInventory(_potionData.WeightItem);
             if (CurrentCount <= 0) Destroy(gameObject);
             StatusText.GetComponent<TMP_Text>().text = $"{CurrentCount}/{_potionData.MaxCount}";
         }
-        
     }
 }

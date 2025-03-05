@@ -1,7 +1,7 @@
 using Items;
 using UnityEngine;
 
-namespace _Project.Scripts.InventoryQuest
+namespace InventoryQuest
 {
     public class SlotInventory : MonoBehaviour
     {

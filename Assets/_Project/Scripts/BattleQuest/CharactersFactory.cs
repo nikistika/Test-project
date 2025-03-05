@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Characters;
 using UnityEngine;
 
-namespace _Project.Scripts.BattleQuest
+namespace InventoryQuest.Scripts.BattleQuest
 {
     public class CharactersFactory : MonoBehaviour
     {

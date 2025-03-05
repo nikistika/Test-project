@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using ObjectPool;
 using Scriptable_Objects;
 using TMPro;
-using UI;
+using Chatacter;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -42,8 +40,8 @@ namespace Characters
         {
             _maxHealth = Data.Health;
 
-            CharacterName = Data.CharacterName; 
-            
+            CharacterName = Data.CharacterName;
+
             HP = _maxHealth;
             _hpSlider.maxValue = _maxHealth;
             _hpSlider.value = _maxHealth;
@@ -53,12 +51,51 @@ namespace Characters
             _pool.autoExpand = _autoExpand;
 
             _nameCharacterTMP.text = Data.CharacterName;
+        }
 
+        public override void StateStunEffect(bool state)
+        {
+            StunEffect = state;
+        }
+
+        public override void StateDebuffEffect(bool state)
+        {
+            DebuffEffect = state;
+        }
+
+        public override void StateDebuffEffect(bool state, int debuffPercent)
+        {
+            DebuffEffect = state;
+            DebuffPercent = debuffPercent;
+        }
+
+        public override void GetDamage(int damage)
+        {
+            HP -= damage;
+            _hpSlider.value = HP;
+            _hpCharacterTMP.text = $"{HP}/{_maxHealth}";
+
+            if (HP <= 0)
+            {
+                Destroy(gameObject);
+
+                return;
+            }
+
+            string textDamage = $"-{damage}";
+            CreateTextView(textDamage, _positionTextDamage);
+        }
+
+        public override void CreateTextView(string text, Vector3 positionText)
+        {
+            var textDamage = _pool.GetFreeElement();
+            textDamage.transform.localPosition = positionText;
+            textDamage.EditTextDamage(text);
+            StartCoroutine(ReturnToPoolAfterDelay(textDamage, 2f));
         }
 
         protected void Start()
         {
-            
             _rangeTimeAttack = Data.SpeedAttack;
 
             StartCoroutine(AttackCoroutine(Enemy, _rangeTimeAttack));
@@ -83,7 +120,6 @@ namespace Characters
                 if (StunEffect == false && DebuffEffect == false)
                 {
                     Attack(enemy, CurrentDamage);
-                    
                 }
 
 
@@ -103,36 +139,6 @@ namespace Characters
             if (EffectCharacter == false) ApplyEffect();
         }
 
-        public override void GetDamage(int damage)
-        {
-            HP -= damage;
-            _hpSlider.value = HP;
-            _hpCharacterTMP.text = $"{HP}/{_maxHealth}";
-
-            if (HP <= 0)
-            {
-                Destroy(gameObject);
-                
-                return;
-            }
-
-            string textDamage = $"-{damage}";
-            CreateTextView(textDamage, _positionTextDamage);
-        }
-
-        public override void CreateTextView(string text, Vector3 positionText)
-        {
-            var textDamage = _pool.GetFreeElement();
-            textDamage.transform.localPosition = positionText;
-            textDamage.EditTextDamage(text);
-            StartCoroutine(ReturnToPoolAfterDelay(textDamage, 2f));
-        }
-
-        private IEnumerator ReturnToPoolAfterDelay(TextDamage textDamage, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            _pool.SetObject(textDamage);
-        }
 
         protected virtual void ApplyEffect()
         {
@@ -154,20 +160,10 @@ namespace Characters
             return Random.Range(minDamage, maxDamage);
         }
 
-        public override void StateStunEffect(bool state)
+        private IEnumerator ReturnToPoolAfterDelay(TextDamage textDamage, float delay)
         {
-            StunEffect = state;
-        }
-
-        public override void StateDebuffEffect(bool state)
-        {
-            DebuffEffect = state;
-        }
-
-        public override void StateDebuffEffect(bool state, int debuffPercent)
-        {
-            DebuffEffect = state;
-            DebuffPercent = debuffPercent;
+            yield return new WaitForSeconds(delay);
+            _pool.SetObject(textDamage);
         }
     }
 }
