@@ -62,6 +62,11 @@ namespace Items
             slot.AddNewItemInCurrentSlot(item);
         }
 
+        public void OnDestroyItemInSlot()
+        {
+
+        }
+
         public virtual void ItemEffect()
         {
         }

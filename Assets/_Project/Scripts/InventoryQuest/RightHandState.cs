@@ -14,7 +14,14 @@ public class RightHandState : MonoBehaviour
     public void TakeWeapon(Item weapon, Vector3 position, Quaternion rotation)
     {
         var weaponData = weapon.ItemData as WeaponData;
-        CurrentWeapon = Instantiate(weaponData.Prefab, position, rotation, transform);
+        CurrentWeapon = Instantiate(weaponData.Prefab, transform);
+        CurrentWeapon.transform.localPosition = position;
+        CurrentWeapon.transform.localRotation = rotation;
+    }
+
+    public void ReturnCurrentWeaponinInventory()
+    {
+        
     }
 
     public void RemoveWeapon()

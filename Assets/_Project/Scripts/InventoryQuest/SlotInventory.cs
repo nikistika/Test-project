@@ -18,6 +18,11 @@ namespace _Project.Scripts.InventoryQuest
 
         }
 
+        public void OnDestroySlotItem()
+        {
+            Destroy(CurrentSlotItem);
+        }
+
         public void OnClickItem()
         {
             CurrentSlotItem.ItemEffect();

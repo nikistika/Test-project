@@ -1,4 +1,5 @@
 using Character;
+using InventoryUI;
 using Scriptable_Objects;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Items
     {
         
         private ShieldData _shieldData;
-        [SerializeField] private GameObject _hand_r;
+        //[SerializeField] private GameObject _hand_r;
 
         private void Awake()
         {
@@ -24,8 +25,19 @@ namespace Items
         {
             Vector3 positionPrefab = new(0.35f, 0, -0.13f);
             Quaternion rotationPrefab = Quaternion.Euler(-72, -282, 36);
-            
+
+            if (RightHand.CurrentWeapon != null)
+            {
+                var freeSlotInventory = InventoryMenu.ReturnFirstFreeSlot();
+                var CurrentWeaponItem = RightHand.CurrentWeapon.GetComponent<Item>();
+
+                CurrentWeaponItem.AddNewItem(freeSlotInventory, CurrentWeaponItem);
+                CurrentWeaponItem.OnDestroyItemInSlot();
+                //TODO: переделать функцию
+            }
+
             RightHand.TakeWeapon(this ,positionPrefab, rotationPrefab);
+            Destroy(this);
         }
 
         // public override void ClickAddItemPanelAction(GameObject slot)
